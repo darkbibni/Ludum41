@@ -25,8 +25,6 @@ public class Button : MonoBehaviour {
             return;
         }
 
-        print("CLIC !");
-
         anim.SetTrigger("Use");
 
         hasBeenUsed = true;

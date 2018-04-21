@@ -5,6 +5,8 @@ using UnityEngine;
 public class Breakable : MonoBehaviour {
 
     [SerializeField] private Interactable interactable;
+    
+    [SerializeField] private AudioSource audioSource;
 
     private MissionManager missionMgr;
 
@@ -29,10 +31,10 @@ public class Breakable : MonoBehaviour {
 
         isBreak = true;
 
-        // TODO Anim !
-        // TODO Sound
+        // TODO Feedback - Anim !
 
-        print("BREAK GLASS !");
+        audioSource.clip = AudioManager.instance.GetSound("SFX_BREAK_GLASS");
+        audioSource.Play();
 
         if(permitToFlee)
         {
