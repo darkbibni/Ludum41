@@ -21,8 +21,6 @@ public class Interactable : MonoBehaviour {
             }
         }
 
-        print("OK");
-
         if (OnInteract != null)
         {
             OnInteract();
