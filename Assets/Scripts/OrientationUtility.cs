@@ -12,10 +12,10 @@ public enum Orientation
 public class OrientationUtility : MonoBehaviour {
 
     public static Vector3[] orientations = {
+        Vector3.back,
+        Vector3.left,
         Vector3.forward,
-        Vector3.right,
-        -Vector3.forward,
-        -Vector3.right
+        Vector3.right
     };
 
     public static Orientation GetOrientation(Vector3 dir)

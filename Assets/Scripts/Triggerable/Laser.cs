@@ -50,9 +50,8 @@ public class Laser : Trigerrable {
     {
         if(touchedGameobject.tag == "Player")
         {
-            // TODO Trigger end of the mission.
-
-            print("PLAYER TOUCHED !!!");
+            PlayerManager player = touchedGameobject.GetComponent<PlayerManager>();
+            player.DetectPlayer();
         }
     }
 }

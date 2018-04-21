@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour {
 
     [SerializeField] TurnManager turnMgr;
+    [SerializeField] MissionManager missionMgr;
 
     public delegate void Move(float horizontal, float vertical);
     public Move move;
@@ -16,7 +17,7 @@ public class PlayerInput : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if(!turnMgr.IsPlayerTurn)
+        if(!turnMgr.IsPlayerTurn || missionMgr.IsGameOver)
         {
             return;
         }

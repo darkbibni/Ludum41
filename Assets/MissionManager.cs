@@ -4,13 +4,57 @@ using UnityEngine;
 
 public class MissionManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    [SerializeField] PlayerManager player;
+
+    public Delegates.SimpleDelegate OnWin;
+    public Delegates.SimpleDelegate OnLose;
+
+    public bool IsGameOver
+    {
+        get; set;
+    }
+
+    private void Awake()
+    {
+        IsGameOver = false;
+
+        player.OnDetected += PlayerDetected;
+        player.OnCatched += PlayerLose;
+    }
+
+    private void PlayerDetected()
+    {
+        // Trigger directly new turn.
+        player.StartNewTurn();
+    }
+
+    public void PlayerLose()
+    {
+        if(IsGameOver)
+        {
+            return;
+        }
+        
+        IsGameOver = true;
+
+        if(OnLose != null)
+        {
+            OnLose();
+        }
+    }
+
+    public void PlayerWin()
+    {
+        if (IsGameOver)
+        {
+            return;
+        }
+
+        IsGameOver = true;
+
+        if (OnWin != null)
+        {
+            OnWin();
+        }
+    }
 }

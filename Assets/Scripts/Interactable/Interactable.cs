@@ -2,7 +2,7 @@
 
 public class Interactable : MonoBehaviour {
 
-    [SerializeField] private Orientation playerOrienation;
+    [SerializeField] private Orientation playerOrientation;
 
     public Delegates.SimpleDelegate OnInteract;
 
@@ -10,15 +10,20 @@ public class Interactable : MonoBehaviour {
     {
         print("INTERACT with dir : " + dir);
 
-        if (playerOrienation != Orientation.None && dir != Vector3.zero)
+        if (playerOrientation != Orientation.None && dir != Vector3.zero)
         {
             // Check the player orientation when interact.
-            if(playerOrienation != OrientationUtility.GetOrientation(dir)) {
+
+            print(playerOrientation + " " + OrientationUtility.GetOrientation(dir));
+
+            if(playerOrientation != OrientationUtility.GetOrientation(dir)) {
                 return;
             }
         }
 
-        if(OnInteract != null)
+        print("OK");
+
+        if (OnInteract != null)
         {
             OnInteract();
         }

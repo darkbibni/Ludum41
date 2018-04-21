@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using DG.Tweening;
+
 public class Door : Trigerrable {
 
     [SerializeField] private Collider[] colliders;
-    // TODO Disable collider.
-    // TODO Anim
 
     public override void Activate()
     {
-        foreach(Collider c in colliders)
+        OpenDoor();
+    }
+
+    private void OpenDoor()
+    {
+        foreach (Collider c in colliders)
         {
-            c.gameObject.SetActive(false);
+            c.transform.DOLocalMove(c.transform.localPosition + c.transform.forward, 0.5f);
         }
     }
 }

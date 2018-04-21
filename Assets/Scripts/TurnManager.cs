@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour {
 
+    [SerializeField] private MissionManager missionMgr;
+
     [SerializeField] private PlayerManager player;
     [SerializeField] private List<Obstacle> missionObstacles;
 
@@ -25,8 +27,18 @@ public class TurnManager : MonoBehaviour {
 
     void OnPlayerTurnFinished()
     {
+        // Check first if an exit has been reached.
+
+        // Player hasn't succeed to flee.
+        if(player.HasBeenDetected)
+        {
+            player.CatchPlayer();
+
+            return;
+        }
+
         isPlayerTurn = false;
-        
+
         // TODO Trigger all computer elements.
         foreach(Obstacle obstacle in missionObstacles)
         {

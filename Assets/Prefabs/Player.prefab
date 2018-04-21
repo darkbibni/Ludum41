@@ -24,9 +24,10 @@ GameObject:
   - component: {fileID: 114216057565914650}
   - component: {fileID: 114559331597159562}
   - component: {fileID: 114081817055058928}
-  m_Layer: 0
+  - component: {fileID: 114069264284140502}
+  m_Layer: 10
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4619915898430352}
   - component: {fileID: 212821638469186066}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1295119652909204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9, y: 0, z: 0}
+  m_LocalPosition: {x: -8.5, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4619915898430352}
@@ -68,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1705972716623534}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4067243271281960}
@@ -100,7 +101,20 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &114069264284140502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1295119652909204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 850d123c8312ce24cb7acdbde14e7e4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: {fileID: 114216057565914650}
+  playerCollider: {fileID: 65918171374417746}
 --- !u!114 &114081817055058928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,7 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move: {fileID: 114559331597159562}
-  movePointBase: 3
+  movePointBase: 5
+  bonusPointLastTurn: 2
 --- !u!114 &114216057565914650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnMgr: {fileID: 0}
+  missionMgr: {fileID: 0}
 --- !u!114 &114559331597159562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,7 +158,6 @@ MonoBehaviour:
   wallMask:
     serializedVersion: 2
     m_Bits: 256
-  playerCollider: {fileID: 65918171374417746}
 --- !u!212 &212821638469186066
 SpriteRenderer:
   m_ObjectHideFlags: 1

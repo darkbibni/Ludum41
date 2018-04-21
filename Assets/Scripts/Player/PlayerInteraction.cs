@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Permit to interact with all elements around the player.
+/// </summary>
 public class PlayerInteraction : MonoBehaviour {
 
 	[SerializeField] private PlayerInput input;
@@ -23,13 +24,39 @@ public class PlayerInteraction : MonoBehaviour {
             if(interactable != null)
             {
                 Vector3 origin = transform.position + playerCollider.center;
+                Vector3 firstDir = (c.transform.position - origin).normalized;
+                
+                // Correct dir. 
+                Vector3 correctedDir = GetUnitVector(firstDir);
 
-                Vector3 dir = (c.transform.position - origin).normalized;
+                // Debug dir.
+                Debug.DrawRay(origin, firstDir, Color.red, 1f);
+                Debug.DrawRay(origin, correctedDir, Color.green, 1f);
 
-                Debug.DrawRay(origin, dir, Color.red, 1f);
-
-                interactable.Interact(dir);
+                // Interact with the element.
+                interactable.Interact(correctedDir);
             }
         }
+    }
+
+    private Vector3 GetUnitVector(Vector3 dir)
+    {
+        Vector3 unitDir = Vector3.zero;
+
+        float absX = Mathf.Abs(dir.x);
+        float absZ = Mathf.Abs(dir.z);
+
+        // Take largest component of the vector then take his sign.
+        if (absX > absZ)
+        {
+            unitDir = Mathf.Sign(dir.x) * Vector3.right;
+        }
+
+        else if(absX < absZ)
+        {
+            unitDir = Mathf.Sign(dir.z) * Vector3.forward;
+        }
+
+        return unitDir;
     }
 }
