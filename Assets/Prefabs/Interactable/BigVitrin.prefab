@@ -532,12 +532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 114807594602198150}
   area: {fileID: 114430159877246802}
-  microGameSpeed: 0.4
-  microGameSize: 0.2
-  min: 0
-  max: 180
-  IsFinished: 0
-  HasSucceed: 0
+  difficulty: {fileID: 11400000, guid: 6d78ff71cc2459e448e9043dcfd8eee6, type: 2}
 --- !u!114 &114160296856536004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -589,11 +584,7 @@ MonoBehaviour:
   interactable: {fileID: 114753694354774826}
   anim: {fileID: 95308165014024788}
   item: {fileID: 114500440413828354}
-  itemData:
-    sprite: {fileID: 21300010, guid: e33452ce05d1ba8408e4deddaa867ab6, type: 3}
-    name: azeezzae
-    rewardPrice: 0
-    description: zaezaezaeaze
+  itemData: {fileID: 11400000, guid: aa7dcb03f4d63eb4788ef5702135db0e, type: 2}
   hookingMg: {fileID: 114152434147843708}
   unlockDuration: 1
   audioSrc: {fileID: 82992694484306394}

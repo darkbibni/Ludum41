@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FollowCamera : MonoBehaviour {
 
@@ -8,7 +6,6 @@ public class FollowCamera : MonoBehaviour {
     [SerializeField] private Vector3[] limits = { Vector3.zero, Vector3.zero };
 
     [SerializeField] private float camSpeed = 2f;
-    private Vector3 targetPosition;
 
     private void LateUpdate()
     {
@@ -18,9 +15,7 @@ public class FollowCamera : MonoBehaviour {
 
         clampedPosition.y = transform.position.y;
         clampedPosition.z = 0f;
-
-        targetPosition = clampedPosition;
-
+        
         transform.position = Vector3.Lerp(transform.position, clampedPosition, Time.deltaTime * camSpeed);
     }
 }

@@ -16,8 +16,6 @@ public class Interactable : MonoBehaviour {
 
     public virtual void Interact(Vector3 dir)
     {
-        print("INTERACT with dir : " + dir);
-
         if (playerOrientation != Orientation.None && dir != Vector3.zero)
         {
             // Check the player orientation when interact.
@@ -34,8 +32,6 @@ public class Interactable : MonoBehaviour {
 
     public virtual void DiscreteInteract(Vector3 dir)
     {
-        print("INTERACT DISCRETLY with dir : " + dir);
-
         if (playerOrientation != Orientation.None && dir != Vector3.zero)
         {
             // Check the player orientation when interact.

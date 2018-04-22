@@ -549,11 +549,7 @@ MonoBehaviour:
   interactable: {fileID: 114574608755231654}
   anim: {fileID: 95512246855100590}
   item: {fileID: 114419590557634212}
-  itemData:
-    sprite: {fileID: 21300006, guid: e33452ce05d1ba8408e4deddaa867ab6, type: 3}
-    name: rg
-    rewardPrice: 0
-    description: ergrergr\nzeruhezrhurz
+  itemData: {fileID: 11400000, guid: ce251bbc9ce06d540ac8a14288e1defa, type: 2}
   hookingMg: {fileID: 114682176973640752}
   unlockDuration: 1
   audioSrc: {fileID: 82636835308813362}
@@ -622,12 +618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 114563019408178642}
   area: {fileID: 114974216422415432}
-  microGameSpeed: 0.4
-  microGameSize: 0.2
-  min: 0
-  max: 180
-  IsFinished: 0
-  HasSucceed: 0
+  difficulty: {fileID: 11400000, guid: 392bd946351e8d741885ff9169d92df1, type: 2}
 --- !u!114 &114742096407192432
 MonoBehaviour:
   m_ObjectHideFlags: 1

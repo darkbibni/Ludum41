@@ -7,7 +7,21 @@ public class PlayerInventory : MonoBehaviour {
     public Delegates.OnLootItem OnSteal;
 
     private List<Item> items = new List<Item>();
-    
+
+    public int TotalStolenValue
+    {
+        get
+        {
+            return totalStollenValue;
+        }
+    }
+    private int totalStollenValue;
+
+    private void Awake()
+    {
+        totalStollenValue = 0;
+    }
+
     public int ItemCount
     {
         get { return items.Count; }
@@ -17,7 +31,9 @@ public class PlayerInventory : MonoBehaviour {
     {
         items.Add(item);
 
-        if(OnSteal != null)
+        totalStollenValue += item.Data.rewardPrice;
+
+        if (OnSteal != null)
         {
             OnSteal(item);
         }

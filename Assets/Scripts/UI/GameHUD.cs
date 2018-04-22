@@ -10,9 +10,12 @@ public class GameHUD : MonoBehaviour {
 
     [SerializeField] private Text movePointText;
     [SerializeField] private Text stolenItemText;
+    [SerializeField] private Text totalStolenValueText;
     [SerializeField] private Image lastTurnFeedback;
     [SerializeField] private Text turnFeedbackText;
-    
+
+    [SerializeField] private ItemPanelUI itemPanel;
+
     private PlayerInventory playerInventory;
 
     private void Awake()
@@ -25,6 +28,8 @@ public class GameHUD : MonoBehaviour {
 
         turnMgr.OnPlayerTurn += FeedbackPlayerTurn;
         turnMgr.OnComputerTurn += FeedbackComputerTurn;
+
+        UpdateTotalStolenValue(0);
     }
 
     private void UpdateMovePoint()
@@ -35,7 +40,40 @@ public class GameHUD : MonoBehaviour {
     private void IncrementItemCount(Item item)
     {
         stolenItemText.text = playerInventory.ItemCount.ToString();
+
+        UpdateTotalStolenValue(playerInventory.TotalStolenValue);
+
+        itemPanel.DisplayItem(item);
     }
+
+    private void UpdateTotalStolenValue(int newValue)
+    {
+        totalStolenValueText.text = FormatScore(newValue);
+    }
+
+    /// <summary>
+    /// Add space every threes characters in the string.
+    /// </summary>
+    /// <param name="score"></param>
+    /// <returns></returns>
+    public static string FormatScore(int score)
+    {
+        string scoreString = score.ToString();
+
+        int i = 1;
+        int spaceIndex = scoreString.Length - 4 * i + 1;
+
+        while (spaceIndex > 0)
+        {
+            scoreString = scoreString.Insert(spaceIndex, " ");
+
+            i++;
+            spaceIndex = scoreString.Length - 4 * i + 1;
+        }
+
+        return scoreString;
+    }
+
 
     private void FeedbackLastTurn()
     {

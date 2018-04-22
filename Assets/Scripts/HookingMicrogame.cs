@@ -7,24 +7,20 @@ public class HookingMicrogame : MonoBehaviour {
 
     [SerializeField] private Image player;
     [SerializeField] private Image area;
-    [SerializeField] private float microGameSpeed = 0.5f;
+    [SerializeField] private LockPickingPreset difficulty;
 
-    [Range(0f, 1f)]
-    [SerializeField] private float microGameSize = 0.1f;
-
-    [SerializeField] private float min = 0f;
-    [SerializeField] private float max = 180f;
+    // Min and max of the micro game.
+    private float min = 0f, max = 180f;
 
     private bool sensHoraire = false;
 
     private float t;
     private Vector2 areaLimit;
 
-    private Quaternion start;
-    private Quaternion end;
+    private Quaternion start, end;
 
-    public bool IsFinished;
-    public bool HasSucceed;
+    public bool IsFinished { get; private set; }
+    public bool HasSucceed { get; private set; }
 
     private void Awake()
     {
@@ -34,13 +30,13 @@ public class HookingMicrogame : MonoBehaviour {
         t = 0f;
         sensHoraire = true;
 
-        area.fillAmount = microGameSize * 0.5f;
+        area.fillAmount = difficulty.size * 0.5f;
 
-        float targetT = Random.Range(0f, 1f - microGameSize);
+        float targetT = Random.Range(0f, 1f - difficulty.size);
         
         area.transform.localRotation = Quaternion.Lerp(start, end, targetT);
         areaLimit.x = targetT;
-        areaLimit.y = targetT + microGameSize * 0.8f;
+        areaLimit.y = targetT + difficulty.size * 0.8f;
     }
 
     public void StartMg()
@@ -59,9 +55,14 @@ public class HookingMicrogame : MonoBehaviour {
 
         player.transform.localRotation = Quaternion.Lerp(start, end, t);
 
+        HandleInput();
+    }
+
+    private void HandleInput()
+    {
         if (Input.GetButtonDown("DiscreteAction"))
         {
-            if(CheckPlayerPos())
+            if (CheckPlayerPos())
             {
                 HasSucceed = true;
             }
@@ -77,6 +78,7 @@ public class HookingMicrogame : MonoBehaviour {
         }
     }
 
+    // Check if the cursor is correclty placed.
     private bool CheckPlayerPos()
     {
         if(t >= areaLimit.x && t <= areaLimit.y)
@@ -87,11 +89,12 @@ public class HookingMicrogame : MonoBehaviour {
         return false;
     }
 
+    // Move the cursor.
     private void UpdatePlayerPos()
     {
         if (sensHoraire)
         {
-            t += Time.deltaTime * microGameSpeed;
+            t += Time.deltaTime * difficulty.speed;
 
             if (t >= 1f)
             {
@@ -101,7 +104,7 @@ public class HookingMicrogame : MonoBehaviour {
 
         else
         {
-            t -= Time.deltaTime * microGameSpeed;
+            t -= Time.deltaTime * difficulty.speed;
 
             if (t <= 0f)
             {
