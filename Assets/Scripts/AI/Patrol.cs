@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum PatrolType
@@ -43,17 +44,43 @@ public class Patrol : MonoBehaviour
 
         SetupAI();
     }
-
-    // Update is called once per frame
-    protected void Update()
+    
+    public IEnumerator Move(int movePoint)
     {
-        float distance = Vector3.Distance(transform.position, nextPatrolPoint);
+        int remindMovePoint = movePoint;
 
-        if (distance > Mathf.Epsilon)
-            transform.position = Vector3.MoveTowards(transform.position, nextPatrolPoint, patrolSpeed * Time.deltaTime);
+        while(remindMovePoint > 0)
+        {
+            float distance = Vector3.Distance(transform.position, nextPatrolPoint);
 
-        else
-            DetermineNextPatrolPoint();
+            if (distance > 0.01f)
+            {
+                Vector3 dir = (nextPatrolPoint - transform.position).normalized;
+                transform.position = transform.position + dir;
+
+                remindMovePoint--;
+
+                yield return new WaitForSeconds(0.25f);
+            }
+
+            else
+            {
+                DetermineNextPatrolPoint();
+
+                yield return new WaitForSeconds(0.5f);
+            }
+        }
+    }
+
+    private void RotateToPatrolPoint()
+    {
+        // Rotate.
+        Vector3 dir = (nextPatrolPoint - transform.position).normalized;
+
+        if(dir != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(dir, Vector3.up);
+        }
     }
 
     #endregion
@@ -77,6 +104,8 @@ public class Patrol : MonoBehaviour
 
                 WarpPatrol(); break;
         }
+
+        RotateToPatrolPoint();
     }
 
     protected void GoingAndComingPatrol()

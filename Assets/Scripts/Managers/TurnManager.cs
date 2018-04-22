@@ -5,7 +5,7 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour {
     
     [SerializeField] private PlayerManager player;
-    [SerializeField] private List<Obstacle> missionObstacles;
+    [SerializeField] private List<ObstacleGroup> missionObstacles;
 
     public Delegates.SimpleDelegate OnPlayerTurn;
     public Delegates.SimpleDelegate OnComputerTurn;
@@ -26,7 +26,7 @@ public class TurnManager : MonoBehaviour {
         StartNewPlayerTurn();
     }
 
-    void OnPlayerTurnFinished()
+    public void OnPlayerTurnFinished()
     {
         // Player hasn't succeed to flee.
         if(player.HasBeenDetected)
@@ -40,12 +40,6 @@ public class TurnManager : MonoBehaviour {
         if(OnComputerTurn != null)
         {
             OnComputerTurn();
-        }
-        
-        // Trigger all museum elements.
-        foreach(Obstacle obstacle in missionObstacles)
-        {
-            obstacle.StartNewTurn();
         }
 
         StartCoroutine(FakeComputerTurn());
@@ -65,7 +59,16 @@ public class TurnManager : MonoBehaviour {
 
     IEnumerator FakeComputerTurn()
     {
-        yield return new WaitForSeconds(0.5f);
+        // Trigger all museum elements.
+        foreach (ObstacleGroup obstacleGroup in missionObstacles)
+        {
+            foreach(Obstacle obstacle in obstacleGroup.group)
+            {
+                obstacle.StartNewTurn();
+            }
+
+            yield return new WaitForSeconds(0.5f);
+        }
 
         StartNewPlayerTurn();
     }

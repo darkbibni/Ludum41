@@ -54,4 +54,12 @@ public class GameHUD : MonoBehaviour {
     {
         turnFeedbackText.text = "Wait";
     }
+
+    /// <summary>
+    /// Force player turn to finish.
+    /// </summary>
+    public void OnPressFinishTurn()
+    {
+        turnMgr.OnPlayerTurnFinished();
+    }
 }
