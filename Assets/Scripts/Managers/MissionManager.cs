@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MissionManager : MonoBehaviour {
 
@@ -20,6 +21,22 @@ public class MissionManager : MonoBehaviour {
 
         player.OnDetected += PlayerDetected;
         player.OnCatched += PlayerLose;
+    }
+
+    private void Update()
+    {
+        if(IsGameOver)
+        {
+            if(Input.GetButtonDown("Submit"))
+            {
+                Restart();
+            }
+        }
+    }
+
+    private void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void PlayerDetected()
