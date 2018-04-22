@@ -13,6 +13,8 @@ public class WarningUI : MonoBehaviour {
     [SerializeField] float warningFadeDuration = 0.75f;
     [SerializeField] int animCount = 3;
 
+    [SerializeField] private AudioSource audioSource;
+
     private void Awake()
     {
         player.OnDetected += TriggerWarningAnim;
@@ -21,6 +23,8 @@ public class WarningUI : MonoBehaviour {
 	public void TriggerWarningAnim()
     {
         StartCoroutine(WarningAnim());
+
+        audioSource.Play();
     }
 
     private IEnumerator WarningAnim()

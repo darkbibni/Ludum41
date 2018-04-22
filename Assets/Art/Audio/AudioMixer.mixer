@@ -98,6 +98,7 @@ AudioMixerGroupController:
   m_Pitch: 6e4ecb53a28490242955f3a272f79cb3
   m_Effects:
   - {fileID: 244010209145225504}
+  - {fileID: 244079227770470270}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -112,6 +113,47 @@ AudioMixerEffectController:
   m_EffectName: Attenuation
   m_MixLevel: f747605339d682843a4ecefe50e35ce6
   m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &244079227770470270
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 469234719257c2c43a0e2c5f30a123b0
+  m_EffectName: OculusSpatializerReflection
+  m_MixLevel: b3ca31c82224a4348a4bd2be98b64439
+  m_Parameters:
+  - m_ParameterName: GScale
+    m_GUID: f6238c6d4cab1a744850a6324666b97c
+  - m_ParameterName: E.Rflt On
+    m_GUID: 5ed08b929ecab75439ff3d19e13a44a0
+  - m_ParameterName: E.Rflt Rev On
+    m_GUID: 1544bd1c7eedaab479010abe2170c8f4
+  - m_ParameterName: Room X
+    m_GUID: 3adca1b782e17de45a6df6023fc81a5e
+  - m_ParameterName: Room Y
+    m_GUID: 2e528947c4b19ed45aa39575ab1cbdac
+  - m_ParameterName: Room Z
+    m_GUID: 96f7c9d345eaab043b09223f50e0c72e
+  - m_ParameterName: Left
+    m_GUID: 743fdee7d43aaba4fa721a906f58d00c
+  - m_ParameterName: Right
+    m_GUID: 4a213a3d65784be4c8f279a1fd2f8809
+  - m_ParameterName: Up
+    m_GUID: 73104614230ae2541b0f2cd7c98b1479
+  - m_ParameterName: Down
+    m_GUID: e9cec1c0efa3cfa42a3f2e9e0e4d42ac
+  - m_ParameterName: Behind
+    m_GUID: c2f6754120eb57e46b2a1f50b51b73d6
+  - m_ParameterName: Front
+    m_GUID: f15b731522ce2ba4a85fa2475f5c7169
+  - m_ParameterName: Shared Rev Min
+    m_GUID: b33592b365c17754997eeba280c5ed03
+  - m_ParameterName: Shared Rev Max
+    m_GUID: 8734b3f1fe667e84ebd6943bd7b52a1f
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0

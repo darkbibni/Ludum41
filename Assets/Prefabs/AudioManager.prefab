@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1902439696763072}
+  m_IsPrefabParent: 1
+--- !u!1 &1902439696763072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4867727806292856}
+  - component: {fileID: 114545296028988270}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4867727806292856
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1902439696763072}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114545296028988270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1902439696763072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5131eef76c6e0874ba4b46825754d701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allClips:
+  - sfxName: SFX_BREAK_GLASS
+    sfxs:
+    - {fileID: 8300000, guid: 36d0b98effae50d49b3d29d95638971a, type: 3}
+    - {fileID: 8300000, guid: a9ab16a2aa40db849aa0840f124595af, type: 3}
+    - {fileID: 8300000, guid: 6abae1aa98bb86740ac8b3734a7fada2, type: 3}
+  - sfxName: SFX_PRESS_BUTTON
+    sfxs:
+    - {fileID: 8300000, guid: 4495787461e7075448595cf22f7106cc, type: 3}
+    - {fileID: 8300000, guid: cce2624da9502264496508309c352309, type: 3}
+    - {fileID: 8300000, guid: 6ecbbd830e1fb814899cf46c2c7ff20f, type: 3}
+  - sfxName: SFX_OPEN_DOOR
+    sfxs:
+    - {fileID: 8300000, guid: 686c2be275a932a4caff40d660f7339d, type: 3}
+  - sfxName: SFX_
+    sfxs:
+    - {fileID: 0}
+    - {fileID: 0}

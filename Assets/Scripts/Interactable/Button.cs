@@ -9,6 +9,8 @@ public class Button : MonoBehaviour {
 
     [SerializeField] private Animator anim;
 
+    [SerializeField] private AudioSource audioSource;
+
     private bool hasBeenUsed;
 
     private void Awake()
@@ -29,7 +31,10 @@ public class Button : MonoBehaviour {
 
         hasBeenUsed = true;
 
-        foreach(Trigerrable triggerable in triggerables)
+        audioSource.clip = AudioManager.instance.GetSound("SFX_PRESS_BUTTON");
+        audioSource.Play();
+
+        foreach (Trigerrable triggerable in triggerables)
         {
             triggerable.Activate();
         }
