@@ -62,12 +62,15 @@ public class TurnManager : MonoBehaviour {
         // Trigger all museum elements.
         foreach (ObstacleGroup obstacleGroup in missionObstacles)
         {
+            Obstacle lastObstacle = null;
             foreach(Obstacle obstacle in obstacleGroup.group)
             {
+                lastObstacle = obstacle;
+
                 obstacle.StartNewTurn();
             }
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitUntil(() => lastObstacle.HasFinished);
         }
 
         StartNewPlayerTurn();

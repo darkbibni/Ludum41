@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Guard : Obstacle {
-
-    private bool hasDetectPlayer;
-
+    
     [SerializeField] private Patrol patrol;
     [SerializeField] private int movePoint = 6;
 
@@ -16,8 +14,10 @@ public class Guard : Obstacle {
 
     private IEnumerator Move()
     {
-        yield return patrol.Move(movePoint);
-    }
+        HasFinished = false;
 
-    // TODO Check if detect player
+        yield return patrol.Move(movePoint);
+
+        HasFinished = true;
+    }
 }

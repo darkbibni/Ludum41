@@ -11,9 +11,11 @@ public class AudioManager : MonoBehaviour {
 
     private Dictionary<string, List<AudioClip>> sfxDictionnary;
 
+    [SerializeField] private AudioSource musicSource;
+
     void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -46,6 +48,12 @@ public class AudioManager : MonoBehaviour {
         }
 
         return clip;
+    }
+
+    public void ChangeMusic(AudioClip bgmClip)
+    {
+        musicSource.clip = bgmClip;
+        musicSource.Play();
     }
 
     #region Utility methods

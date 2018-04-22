@@ -29,9 +29,16 @@ public class LaserObstacle : Obstacle
 
     public override void StartNewTurn()
     {
+        HasFinished = false;
+
         DetermineNextStep();
 
-        laserTransform.DOLocalRotate(new Vector3(0, 45f * currentStep, 0f), animDuration).SetEase(Ease.Linear);
+        laserTransform.DOLocalRotate(new Vector3(0, 45f * currentStep, 0f), animDuration).SetEase(Ease.Linear).onComplete = OnTweenFinished;
+    }
+
+    private void OnTweenFinished()
+    {
+        HasFinished = true;
     }
 
     private void DetermineNextStep()
