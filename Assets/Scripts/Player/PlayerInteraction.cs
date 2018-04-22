@@ -11,6 +11,7 @@ public class PlayerInteraction : MonoBehaviour {
     private void Awake()
     {
         input.OnAction += TryToInteract;
+        input.OnDiscreteAction += TryToInteractWithDiscretion;
     }
 
     private void TryToInteract()
@@ -35,6 +36,37 @@ public class PlayerInteraction : MonoBehaviour {
 
                 // Interact with the element.
                 interactable.Interact(correctedDir);
+            }
+        }
+    }
+
+    private void TryToInteractWithDiscretion()
+    {
+        Collider[] colliders = Physics.OverlapBox(transform.position, Vector3.one);
+
+        foreach (Collider c in colliders)
+        {
+            Interactable interactable = c.GetComponent<Interactable>();
+
+            if (interactable != null)
+            {
+                if(!interactable.HasDiscretInteraction)
+                {
+                    return;
+                }
+
+                Vector3 origin = transform.position + playerCollider.center;
+                Vector3 firstDir = (c.transform.position - origin).normalized;
+
+                // Correct dir. 
+                Vector3 correctedDir = GetUnitVector(firstDir);
+
+                // Debug dir.
+                Debug.DrawRay(origin, firstDir, Color.red, 1f);
+                Debug.DrawRay(origin, correctedDir, Color.green, 1f);
+
+                // Interact with the element.
+                interactable.DiscreteInteract(correctedDir);
             }
         }
     }

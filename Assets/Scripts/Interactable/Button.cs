@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Button : MonoBehaviour {
 
-    [SerializeField] private Interactable lootable;
+    [SerializeField] private Interactable interactable;
 
     [SerializeField] private List<Trigerrable> triggerables;
 
@@ -15,7 +15,7 @@ public class Button : MonoBehaviour {
 
     private void Awake()
     {
-        lootable.OnInteract += InteractWithButton;
+        interactable.OnInteract += InteractWithButton;
 
         hasBeenUsed = false;
     }

@@ -11,6 +11,7 @@ public class PlayerInput : MonoBehaviour {
     public delegate void Move(float horizontal, float vertical);
     public Move move;
     public Delegates.SimpleDelegate OnAction;
+    public Delegates.SimpleDelegate OnDiscreteAction;
 
     private float horizontal, vertical;
 
@@ -59,6 +60,16 @@ public class PlayerInput : MonoBehaviour {
             if (OnAction != null)
             {
                 OnAction();
+            }
+        }
+
+        else if (Input.GetButtonDown("DiscreteAction"))
+        {
+            print("DISCRETION");
+
+            if (OnDiscreteAction != null)
+            {
+                OnDiscreteAction();
             }
         }
     }

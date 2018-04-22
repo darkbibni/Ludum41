@@ -27,6 +27,7 @@ public class Vitrin : MonoBehaviour {
         item.Data = itemData;
 
         interactable.OnInteract += OnCutGlass;
+        interactable.OnDiscreteInteract += OnUnlockVitrin;
     }
 
     private void OnCutGlass()
@@ -37,6 +38,8 @@ public class Vitrin : MonoBehaviour {
         }
 
         IsStealing = true;
+
+        print("CUT GLASS");
 
         anim.SetTrigger("CutGlass");
 
@@ -60,6 +63,8 @@ public class Vitrin : MonoBehaviour {
         {
             return;
         }
+
+        print("UNLOCK VITRIN");
 
         IsStealing = true;
 

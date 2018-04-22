@@ -42,7 +42,7 @@ public class TurnManager : MonoBehaviour {
             OnComputerTurn();
         }
 
-        StartCoroutine(FakeComputerTurn());
+        StartCoroutine(WaitForComputer());
     }
 
     void StartNewPlayerTurn()
@@ -57,20 +57,27 @@ public class TurnManager : MonoBehaviour {
         }
     }
 
-    IEnumerator FakeComputerTurn()
+    /// <summary>
+    /// Wait the computer turn.
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator WaitForComputer()
     {
         // Trigger all museum elements.
         foreach (ObstacleGroup obstacleGroup in missionObstacles)
         {
-            Obstacle lastObstacle = null;
-            foreach(Obstacle obstacle in obstacleGroup.group)
+            int groupCount = obstacleGroup.group.Count;
+
+            for (int i = 0; i < groupCount; i++)
             {
-                lastObstacle = obstacle;
+                obstacleGroup.group[i].StartNewTurn();
 
-                obstacle.StartNewTurn();
+                // Wait for the last element of the group.
+                if (i == groupCount)
+                {
+                    yield return new WaitUntil(() => obstacleGroup.group[i].HasFinished);
+                }
             }
-
-            yield return new WaitUntil(() => lastObstacle.HasFinished);
         }
 
         StartNewPlayerTurn();
