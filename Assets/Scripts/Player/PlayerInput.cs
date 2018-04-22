@@ -15,9 +15,19 @@ public class PlayerInput : MonoBehaviour {
 
     private float horizontal, vertical;
 
+    public bool InputLocked
+    {
+        get; set;
+    }
+
 	// Update is called once per frame
 	void Update ()
     {
+        if(InputLocked)
+        {
+            return;
+        }
+
         if(!turnMgr.IsPlayerTurn || missionMgr.IsGameOver)
         {
             return;
@@ -65,8 +75,6 @@ public class PlayerInput : MonoBehaviour {
 
         else if (Input.GetButtonDown("DiscreteAction"))
         {
-            print("DISCRETION");
-
             if (OnDiscreteAction != null)
             {
                 OnDiscreteAction();

@@ -7,6 +7,8 @@ public class PlayerInteraction : MonoBehaviour {
 
 	[SerializeField] private PlayerInput input;
     [SerializeField] private BoxCollider playerCollider;
+    
+    [SerializeField] LayerMask interactableMask;
 
     private void Awake()
     {
@@ -16,7 +18,7 @@ public class PlayerInteraction : MonoBehaviour {
 
     private void TryToInteract()
     {
-        Collider[] colliders = Physics.OverlapBox(transform.position, Vector3.one);
+        Collider[] colliders = Physics.OverlapBox(transform.position, Vector3.one, Quaternion.identity, interactableMask);
         
         foreach(Collider c in colliders)
         {
@@ -42,8 +44,8 @@ public class PlayerInteraction : MonoBehaviour {
 
     private void TryToInteractWithDiscretion()
     {
-        Collider[] colliders = Physics.OverlapBox(transform.position, Vector3.one);
-
+        Collider[] colliders = Physics.OverlapBox(transform.position, Vector3.one, Quaternion.identity, interactableMask);
+        
         foreach (Collider c in colliders)
         {
             Interactable interactable = c.GetComponent<Interactable>();
@@ -52,7 +54,7 @@ public class PlayerInteraction : MonoBehaviour {
             {
                 if(!interactable.HasDiscretInteraction)
                 {
-                    return;
+                    continue;
                 }
 
                 Vector3 origin = transform.position + playerCollider.center;
@@ -60,23 +62,33 @@ public class PlayerInteraction : MonoBehaviour {
 
                 // Correct dir. 
                 Vector3 correctedDir = GetUnitVector(firstDir);
+                
+                if(correctedDir != Vector3.one)
+                {
+                    // Debug dir.
+                    Debug.DrawRay(origin, firstDir, Color.red, 1f);
+                    Debug.DrawRay(origin, correctedDir, Color.green, 1f);
 
-                // Debug dir.
-                Debug.DrawRay(origin, firstDir, Color.red, 1f);
-                Debug.DrawRay(origin, correctedDir, Color.green, 1f);
-
-                // Interact with the element.
-                interactable.DiscreteInteract(correctedDir);
+                    // Interact with the element.
+                    interactable.DiscreteInteract(correctedDir);
+                }
             }
         }
     }
 
+    // Check player placement.
     private Vector3 GetUnitVector(Vector3 dir)
     {
-        Vector3 unitDir = Vector3.zero;
+        Vector3 unitDir = Vector3.one;
 
         float absX = Mathf.Abs(dir.x);
         float absZ = Mathf.Abs(dir.z);
+
+        // Player is on the cell.
+        if(absX == absZ && absX == 0f)
+        {
+            return Vector3.zero;
+        }
 
         // Take largest component of the vector then take his sign.
         if (absX > absZ)
@@ -88,7 +100,13 @@ public class PlayerInteraction : MonoBehaviour {
         {
             unitDir = Mathf.Sign(dir.z) * Vector3.forward;
         }
-
+        
         return unitDir;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireCube(transform.position, Vector3.one * 1.5f);
     }
 }

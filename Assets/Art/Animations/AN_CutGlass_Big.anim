@@ -35,7 +35,7 @@ AnimationClip:
     - time: 1.1666666
       value: {fileID: 21300014, guid: 9a1dfca8a14270a49b2e4f47315eaeee, type: 3}
     attribute: m_Sprite
-    path: Pivot/Glass
+    path: Rotation/Pivot/Glass
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -46,7 +46,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1162637223
+      path: 1537011490
       attribute: 0
       script: {fileID: 0}
       typeID: 212

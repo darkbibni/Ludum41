@@ -9,19 +9,29 @@ public class Vitrin : MonoBehaviour {
     [SerializeField] private Item item;
     [SerializeField] private ItemData itemData; // TODO Scriptable object.
 
+    [SerializeField] private HookingMicrogame hookingMg;
+
     [Header("Audio")]
     [SerializeField] private AudioSource audioSrc;
 
     private PlayerInventory playerInventory;
+    private PlayerInput playerInput;
 
-    private bool IsStealing;
+    private bool isStealing;
+    private bool vitrinLocked;
+    private bool vitrinEmpty;
 
     private void Awake()
     {
+        vitrinEmpty = false;
+        vitrinLocked = false;
+        isStealing = false;
+
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if(player)
         {
             playerInventory = player.GetComponent<PlayerInventory>();
+            playerInput = player.GetComponent<PlayerInput>();
         }
 
         item.Data = itemData;
@@ -32,15 +42,13 @@ public class Vitrin : MonoBehaviour {
 
     private void OnCutGlass()
     {
-        if(IsStealing)
+        if(isStealing || vitrinEmpty)
         {
             return;
         }
 
-        IsStealing = true;
-
-        print("CUT GLASS");
-
+        isStealing = true;
+        
         anim.SetTrigger("CutGlass");
 
         audioSrc.clip = AudioManager.instance.GetSound("SFX_CUT_GLASS");
@@ -59,31 +67,49 @@ public class Vitrin : MonoBehaviour {
 
     private void OnUnlockVitrin()
     {
-        if (IsStealing)
+        if (isStealing || vitrinLocked || vitrinEmpty)
         {
             return;
         }
-
-        print("UNLOCK VITRIN");
-
-        IsStealing = true;
-
-        // TODO Trigger microgame !!!
+        
+        isStealing = true;
+        playerInput.InputLocked = true;
 
         StartCoroutine(UnlockAction());
     }
 
     private IEnumerator UnlockAction()
     {
-        anim.SetTrigger("Open");
+        hookingMg.StartMg();
 
-        audioSrc.clip = AudioManager.instance.GetSound("SFX_UNLOCK_VITRIN");
+        audioSrc.clip = AudioManager.instance.GetSound("SFX_HOOKING_PROGRESS");
         audioSrc.Play();
 
-        yield return new WaitUntil(() => (anim.GetBool("End")));
-        anim.SetBool("End", false);
+        yield return new WaitUntil(() => hookingMg.IsFinished);
 
-        StealItem();
+        if (hookingMg.HasSucceed)
+        {
+            anim.SetTrigger("Open");
+            
+            audioSrc.PlayOneShot(AudioManager.instance.GetSound("SFX_HOOKING_SUCCEED"));
+
+            audioSrc.clip = AudioManager.instance.GetSound("SFX_OPEN_VITRIN");
+            audioSrc.Play();
+
+            yield return new WaitUntil(() => (anim.GetBool("End")));
+            anim.SetBool("End", false);
+
+            StealItem();
+        }
+
+        else
+        {
+            vitrinLocked = true;
+
+            audioSrc.PlayOneShot(AudioManager.instance.GetSound("SFX_HOOKING_FAILED"));
+        }
+
+        playerInput.InputLocked = false;
     }
 
     private void StealItem()
@@ -92,5 +118,9 @@ public class Vitrin : MonoBehaviour {
 
         // TODO Fade ! Then Display on UI !
         item.gameObject.SetActive(false);
+
+        vitrinEmpty = true;
+
+        isStealing = false;
     }
 }
