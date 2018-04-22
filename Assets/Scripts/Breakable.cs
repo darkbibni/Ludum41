@@ -22,6 +22,7 @@ public class Breakable : MonoBehaviour {
         interactable.OnInteract += Break;
     }
 
+    [ContextMenu("Test Son")]
     private void Break()
     {
         if (isBreak)
