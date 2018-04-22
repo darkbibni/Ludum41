@@ -1,14 +1,5 @@
 ﻿using UnityEngine;
 
-[System.Serializable]
-public struct ItemData
-{
-    public Sprite sprite;
-    public string name;
-    public int rewardPrice;
-    public string description;
-}
-
 public class Item : MonoBehaviour {
 
     [SerializeField] private SpriteRenderer spriteRenderer;
