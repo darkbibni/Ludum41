@@ -11,9 +11,11 @@ public class AudioManager : MonoBehaviour {
 
     private Dictionary<string, List<AudioClip>> sfxDictionnary;
 
+    [SerializeField] private AudioSource audioSrc;
+
     void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }

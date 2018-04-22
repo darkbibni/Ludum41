@@ -65,6 +65,9 @@ MonoBehaviour:
   - sfxName: SFX_OPEN_DOOR
     sfxs:
     - {fileID: 8300000, guid: 686c2be275a932a4caff40d660f7339d, type: 3}
+  - sfxName: SFX_UNLOCK_VITRIN
+    sfxs:
+    - {fileID: 8300000, guid: 16d8c4712cd005b4d9fa727f24e87a97, type: 3}
   - sfxName: SFX_
     sfxs:
     - {fileID: 0}
