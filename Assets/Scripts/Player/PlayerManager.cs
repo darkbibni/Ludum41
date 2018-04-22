@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerManager : MonoBehaviour {
 
@@ -11,6 +9,11 @@ public class PlayerManager : MonoBehaviour {
 
     private int currentMovePoint;
 
+    public int CurrentMovePoint
+    {
+        get { return currentMovePoint; }
+    }
+
     public bool HasBeenDetected
     {
         get; private set;
@@ -19,6 +22,7 @@ public class PlayerManager : MonoBehaviour {
         get; private set;
     }
 
+    public Delegates.SimpleDelegate OnMoveDone;
     public Delegates.SimpleDelegate OnTurnFinished;
     public Delegates.SimpleDelegate OnDetected;
     public Delegates.SimpleDelegate OnCatched;
@@ -41,6 +45,11 @@ public class PlayerManager : MonoBehaviour {
     void MoveSucceed()
     {
         currentMovePoint--;
+
+        if(OnMoveDone != null)
+        {
+            OnMoveDone();
+        }
 
         if(currentMovePoint <= 0)
         {

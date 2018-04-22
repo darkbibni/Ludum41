@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class Obstacle : MonoBehaviour {
     
-    public abstract void OnNewTurn();
+    public abstract void StartNewTurn();
 }

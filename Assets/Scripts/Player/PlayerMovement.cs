@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour {
 
             if(OnMoveSucceed != null)
             {
-                // TODO Update UI !
                 OnMoveSucceed();
             }
         }

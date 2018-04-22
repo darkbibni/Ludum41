@@ -40,7 +40,7 @@ public class AudioManager : MonoBehaviour {
 
         AudioClip clip = null;
 
-        if(sfxs.Count > 0)
+        if(sfxs != null && sfxs.Count > 0)
         {
             clip = sfxs[Random.Range(0, sfxs.Count)];
         }

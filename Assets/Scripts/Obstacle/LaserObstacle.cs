@@ -27,7 +27,7 @@ public class LaserObstacle : Obstacle
         horaireSens = true;
     }
 
-    public override void OnNewTurn()
+    public override void StartNewTurn()
     {
         DetermineNextStep();
 

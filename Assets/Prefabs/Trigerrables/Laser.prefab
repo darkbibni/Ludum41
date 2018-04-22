@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4307147795740788}
   - component: {fileID: 114634392781012168}
+  - component: {fileID: 114786104278297370}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -85,7 +86,21 @@ MonoBehaviour:
   laserLength: 25
   blockableLayer:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 1792
+--- !u!114 &114786104278297370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1548347051588810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e673b7617971bb7479be8b2dab032688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserTransform: {fileID: 4542991855394638}
+  laserType: 0
+  animDuration: 0.25
 --- !u!120 &120917498793781610
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -117,8 +132,8 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1396785603
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -140,8 +155,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0.76551723, a: 0.5019608}
-      key1: {r: 1, g: 0, b: 0, a: 0.5019608}
+      key0: {r: 1, g: 0.31034487, b: 0, a: 0.5019608}
+      key1: {r: 1, g: 0, b: 0, a: 1}
       key2: {r: 0.9485294, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
