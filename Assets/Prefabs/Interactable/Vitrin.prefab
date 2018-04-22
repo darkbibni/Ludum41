@@ -555,6 +555,7 @@ MonoBehaviour:
     rewardPrice: 0
     description: ergrergr\nzeruhezrhurz
   hookingMg: {fileID: 114682176973640752}
+  unlockDuration: 1
   audioSrc: {fileID: 82636835308813362}
 --- !u!114 &114419590557634212
 MonoBehaviour:

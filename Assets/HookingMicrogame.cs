@@ -59,7 +59,7 @@ public class HookingMicrogame : MonoBehaviour {
 
         player.transform.localRotation = Quaternion.Lerp(start, end, t);
 
-        if (Input.GetButtonDown("Submit"))
+        if (Input.GetButtonDown("DiscreteAction"))
         {
             if(CheckPlayerPos())
             {

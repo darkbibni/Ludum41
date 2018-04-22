@@ -8,8 +8,9 @@ public class Vitrin : MonoBehaviour {
     [SerializeField] private Animator anim;
     [SerializeField] private Item item;
     [SerializeField] private ItemData itemData; // TODO Scriptable object.
-
+    
     [SerializeField] private HookingMicrogame hookingMg;
+    [SerializeField] private float unlockDuration = 0.5f;
 
     [Header("Audio")]
     [SerializeField] private AudioSource audioSrc;
@@ -67,7 +68,15 @@ public class Vitrin : MonoBehaviour {
 
     private void OnUnlockVitrin()
     {
-        if (isStealing || vitrinLocked || vitrinEmpty)
+        if(vitrinLocked)
+        {
+            audioSrc.clip = AudioManager.instance.GetSound("SFX_LOCKPICK_DENIED");
+            audioSrc.Play();
+
+            return;
+        }
+
+        if (isStealing || vitrinEmpty)
         {
             return;
         }
@@ -82,34 +91,49 @@ public class Vitrin : MonoBehaviour {
     {
         hookingMg.StartMg();
 
-        audioSrc.clip = AudioManager.instance.GetSound("SFX_HOOKING_PROGRESS");
+        audioSrc.loop = true;
+        audioSrc.clip = AudioManager.instance.GetSound("SFX_LOCKPICK_LOOP");
         audioSrc.Play();
 
         yield return new WaitUntil(() => hookingMg.IsFinished);
+        
+        audioSrc.loop = false;
 
         if (hookingMg.HasSucceed)
         {
-            anim.SetTrigger("Open");
-            
-            audioSrc.PlayOneShot(AudioManager.instance.GetSound("SFX_HOOKING_SUCCEED"));
-
-            audioSrc.clip = AudioManager.instance.GetSound("SFX_OPEN_VITRIN");
-            audioSrc.Play();
-
-            yield return new WaitUntil(() => (anim.GetBool("End")));
-            anim.SetBool("End", false);
-
-            StealItem();
+            yield return UnlockSuceed();
         }
 
         else
         {
             vitrinLocked = true;
 
-            audioSrc.PlayOneShot(AudioManager.instance.GetSound("SFX_HOOKING_FAILED"));
+            audioSrc.clip = AudioManager.instance.GetSound("SFX_LOCKPICK_FAIL");
+            audioSrc.Play();
         }
 
         playerInput.InputLocked = false;
+    }
+
+    private IEnumerator UnlockSuceed()
+    {
+        audioSrc.clip = AudioManager.instance.GetSound("SFX_UNLOCK_VITRIN");
+        audioSrc.Play();
+
+        yield return new WaitForSeconds(unlockDuration);
+
+        anim.SetTrigger("Open");
+
+        yield return new WaitUntil(() => (anim.GetBool("End")));
+        anim.SetBool("End", false);
+
+        StealItem();
+    }
+
+    [ContextMenu("FAKE")]
+    private void FakeUnlock()
+    {
+        StartCoroutine(UnlockSuceed());
     }
 
     private void StealItem()

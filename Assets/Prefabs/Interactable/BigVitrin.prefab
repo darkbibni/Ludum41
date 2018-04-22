@@ -429,9 +429,10 @@ AudioSource:
   m_GameObject: {fileID: 1847697099984118}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243742946393498476, guid: e6e61569c86543b499c4d9a1ab8a5a87,
+    type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
@@ -594,6 +595,7 @@ MonoBehaviour:
     rewardPrice: 0
     description: zaezaezaeaze
   hookingMg: {fileID: 114152434147843708}
+  unlockDuration: 1
   audioSrc: {fileID: 82992694484306394}
 --- !u!114 &114430159877246802
 MonoBehaviour:

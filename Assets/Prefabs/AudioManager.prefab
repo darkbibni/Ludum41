@@ -179,6 +179,9 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 17c349d24cf6e504cbc9f5ef4573f447, type: 3}
     - {fileID: 8300000, guid: aff1d7d40057859499dd813a1cf2e92f, type: 3}
     - {fileID: 8300000, guid: ce82bd3867b4a694a99e4874b971afe8, type: 3}
+  - sfxName: SFX_LOCKPICK_LOOP
+    sfxs:
+    - {fileID: 8300000, guid: 7c64b26bb80e9914b93feb034e8608ae, type: 3}
   - sfxName: SFX_
     sfxs:
     - {fileID: 0}

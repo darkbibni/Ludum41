@@ -7,6 +7,8 @@ public class PlayerManager : MonoBehaviour {
     [SerializeField] private int movePointBase = 5;
     [SerializeField] private int bonusPointLastTurn = 2;
 
+    [SerializeField] private AudioSource audioSrc;
+
     private int currentMovePoint;
 
     public int CurrentMovePoint
@@ -51,7 +53,9 @@ public class PlayerManager : MonoBehaviour {
             OnMoveDone();
         }
 
-        if(currentMovePoint <= 0)
+        audioSrc.PlayOneShot(AudioManager.instance.GetSound("SFX_FOOTSTEPS"));
+
+        if (currentMovePoint <= 0)
         {
             FinishPlayerTurn();
         }
