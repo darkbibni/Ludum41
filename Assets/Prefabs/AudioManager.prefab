@@ -149,15 +149,38 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 686c2be275a932a4caff40d660f7339d, type: 3}
   - sfxName: SFX_UNLOCK_VITRIN
     sfxs:
-    - {fileID: 0}
+    - {fileID: 8300000, guid: b4f23305dface2a4a920f9bcb2351b58, type: 3}
   - sfxName: SFX_CUT_GLASS
     sfxs:
     - {fileID: 8300000, guid: a0c2f77c6f9cf2a4594b8bc9d63148aa, type: 3}
     - {fileID: 8300000, guid: b2f9e67d67806c74c90ec7e2002c8349, type: 3}
     - {fileID: 8300000, guid: 844013fa7af8b3145aa54614ef8df3fb, type: 3}
     - {fileID: 8300000, guid: 1648d465ca61f3c4c882c3a1895dd6a4, type: 3}
+  - sfxName: SFX_LOCKPICK_FAIL
+    sfxs:
+    - {fileID: 8300000, guid: 644e60502451b6743ac4ca7823661af1, type: 3}
+    - {fileID: 8300000, guid: ecf41e1f9b40f64499538db15548f436, type: 3}
+    - {fileID: 8300000, guid: 0468fb7f46a6fbc40941be5285dc41c3, type: 3}
+  - sfxName: SFX_LOCKPICK_DENIED
+    sfxs:
+    - {fileID: 8300000, guid: 06eaa71488d904948aab2d0e9d786d0c, type: 3}
+    - {fileID: 8300000, guid: c0a66871b8b72354f94c33a93e0b0ede, type: 3}
+    - {fileID: 8300000, guid: 7e711e99a087128468c1c8381d976c3e, type: 3}
+    - {fileID: 8300000, guid: 39eb2115453b40c4abba8e92aa742f41, type: 3}
+  - sfxName: SFX_FOOTSTEPS
+    sfxs:
+    - {fileID: 8300000, guid: 80b207cd21f199c4ab1f5a0242b26923, type: 3}
+    - {fileID: 8300000, guid: 8f8d49e0cda60fa468a08eff51860d7f, type: 3}
+    - {fileID: 8300000, guid: 00d80790c57650d4a8c9284c57897f70, type: 3}
+    - {fileID: 8300000, guid: 64b52432823fb8946b29962ae179d16f, type: 3}
+    - {fileID: 8300000, guid: fc6af80bbf69a904c90bc2a783f0f11b, type: 3}
+    - {fileID: 8300000, guid: 997aa7cf98a33834cab4afaf260fbeb9, type: 3}
+    - {fileID: 8300000, guid: 40673629f073a8d459e6c75b3d513072, type: 3}
+    - {fileID: 8300000, guid: 17c349d24cf6e504cbc9f5ef4573f447, type: 3}
+    - {fileID: 8300000, guid: aff1d7d40057859499dd813a1cf2e92f, type: 3}
+    - {fileID: 8300000, guid: ce82bd3867b4a694a99e4874b971afe8, type: 3}
   - sfxName: SFX_
     sfxs:
     - {fileID: 0}
     - {fileID: 0}
-  musicSource: {fileID: 82718115557930192}
+  musicSource: {fileID: 0}
