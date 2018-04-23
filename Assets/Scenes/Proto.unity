@@ -656,7 +656,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4867727806292856, guid: cfa3bb5840c56cf4db839d78bd5d92be, type: 2}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cfa3bb5840c56cf4db839d78bd5d92be, type: 2}
@@ -853,7 +853,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1f820c89b0498dd4e8ed21561a2dc238, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d15ce1a8c12932a49984854fd1a18c00, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1120,7 +1120,7 @@ RectTransform:
   - {fileID: 1197520605}
   - {fileID: 978686450}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1396,9 +1396,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lastTurnFeedback: {fileID: 253418205}
   turnFeedbackText: {fileID: 85840154}
-  playerTurnColor: {r: 0.40405676, g: 1, b: 0.16911763, a: 0.5019608}
-  lastTurnColor: {r: 1, g: 0.51724136, b: 0, a: 0.5019608}
-  ennemiesTurnColor: {r: 0.74264705, g: 0.16381918, b: 0.16381918, a: 0.5019608}
+  playerTurnColor: {r: 0.40405676, g: 1, b: 0.16911763, a: 0.6666667}
+  lastTurnColor: {r: 1, g: 0.51724136, b: 0, a: 0.6666667}
+  ennemiesTurnColor: {r: 0.74264705, g: 0.16381918, b: 0.16381918, a: 0.6666667}
   playerTurnText: Your turn
   lastTurnText: Last turn !!!
   ennemiesTurnText: Ennemies turn
@@ -1693,7 +1693,7 @@ RectTransform:
   - {fileID: 997127650}
   - {fileID: 1652247844}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1980,7 +1980,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &694351773
 Prefab:
@@ -7159,7 +7159,7 @@ Transform:
   m_LocalScale: {x: 20, y: 12, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &1560255346
 MeshFilter:
@@ -7559,7 +7559,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1872977507
 GameObject:
@@ -7664,7 +7664,7 @@ Transform:
   - {fileID: 1676667423}
   - {fileID: 962048023}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1884262493
 Prefab:
@@ -8141,7 +8141,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4323286854452430, guid: f7daafc20b71579458097c663e073642, type: 2}
       propertyPath: m_RootOrder
-      value: 19
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 114126251226743194, guid: f7daafc20b71579458097c663e073642,
         type: 2}
