@@ -129,15 +129,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1198520417660362}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: 0, z: 3.5}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 22.5, y: 0, z: 3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4909000923601046}
   - {fileID: 4393755808567878}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4393755808567878
 Transform:
   m_ObjectHideFlags: 1
@@ -175,7 +175,7 @@ Transform:
   m_GameObject: {fileID: 1463859796323582}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 3, y: -0, z: 0}
-  m_LocalScale: {x: 1, y: 5, z: 1.0000005}
+  m_LocalScale: {x: 1, y: 3, z: 1.0000005}
   m_Children: []
   m_Father: {fileID: 4393755808567878}
   m_RootOrder: 2
@@ -229,7 +229,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrol: {fileID: 114872452202026954}
-  movePoint: 6
+  baseMovePoint: 3
+  bonusPointWhenAlerted: 6
 --- !u!114 &114799725179805276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -256,7 +257,6 @@ MonoBehaviour:
   patrolSpeed: 2
   patrolType: 0
   patrolPoints:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!212 &212266207301487410
