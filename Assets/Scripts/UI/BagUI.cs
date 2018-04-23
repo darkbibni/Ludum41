@@ -52,7 +52,7 @@ public class BagUI : MonoBehaviour
 
     public void UpdateTotalStolenValue(int newValue)
     {
-        totalStolenValueText.text = FormatScore(newValue);
+        totalStolenValueText.text = FormatScore(newValue) +" $";
     }
 
     /// <summary>
