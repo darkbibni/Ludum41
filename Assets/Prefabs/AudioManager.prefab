@@ -188,6 +188,12 @@ MonoBehaviour:
     - {fileID: 8300000, guid: e06cd39edbf15c54abcf8c7d7d5c207d, type: 3}
     - {fileID: 8300000, guid: 15ee937afeb22aa4f94a122b680f5e7b, type: 3}
     - {fileID: 8300000, guid: 8241ed48c64f1344f8084419f7c89c01, type: 3}
+  - sfxName: SFX_DOG_GRUNT
+    sfxs:
+    - {fileID: 8300000, guid: 73b32abbc006f574caed4b54fd4f4045, type: 3}
+    - {fileID: 8300000, guid: 91ef9653e4bfd954e973f6246fed802d, type: 3}
+    - {fileID: 8300000, guid: bde31c1b0c2fb614a98bb73597b29485, type: 3}
+    - {fileID: 8300000, guid: fa893c5b0b13a6146afb1aa3e5cc2411, type: 3}
   - sfxName: SFX_
     sfxs:
     - {fileID: 0}
