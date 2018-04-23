@@ -73,7 +73,7 @@ public class TurnManager : MonoBehaviour {
                 obstacleGroup.group[i].StartNewTurn();
 
                 // Wait for the last element of the group.
-                if (i == groupCount)
+                if (i == groupCount-1)
                 {
                     yield return new WaitUntil(() => obstacleGroup.group[i].HasFinished);
                 }

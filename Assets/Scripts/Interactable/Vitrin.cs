@@ -12,6 +12,8 @@ public class Vitrin : MonoBehaviour {
     [SerializeField] private HookingMicrogame hookingMg;
     [SerializeField] private float unlockDuration = 0.5f;
 
+    [SerializeField] private LayerMask warnableMask;
+
     [Header("Audio")]
     [SerializeField] private AudioSource audioSrc;
 
@@ -62,8 +64,25 @@ public class Vitrin : MonoBehaviour {
     {
         yield return new WaitUntil(() => (anim.GetBool("End")));
         anim.SetBool("End", false);
+        
+        WarnDogs();
 
         StealItem();
+    }
+
+    // Warn all dogs around !!!
+    private void WarnDogs()
+    {
+        Collider[] colliders = Physics.OverlapBox(transform.position, Vector3.one, Quaternion.identity, warnableMask);
+
+        foreach(Collider c in colliders)
+        {
+            Dog dog = c.GetComponent<Dog>();
+            if(dog != null)
+            {
+                dog.WakeUp();
+            }
+        }
     }
 
     private void OnUnlockVitrin()

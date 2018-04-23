@@ -10,7 +10,7 @@ public struct ObstacleGroup
 
 public abstract class Obstacle : MonoBehaviour {
 
-    public bool HasFinished;
+    public bool HasFinished { get; protected set; }
 
     public abstract void StartNewTurn();
 }

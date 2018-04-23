@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 using DG.Tweening;
 
@@ -8,6 +9,7 @@ public class Door : Trigerrable {
 
     [SerializeField] private Collider[] colliders;
 
+    [SerializeField] private NavMeshObstacle navMeshObstacle;
     [SerializeField] private float OpenDuration = 1.0f;
 
     [SerializeField] private AudioSource audioSource;
@@ -26,5 +28,6 @@ public class Door : Trigerrable {
         {
             c.transform.DOLocalMove(c.transform.localPosition + c.transform.forward, OpenDuration);
         }
+        navMeshObstacle.enabled = false;
     }
 }
