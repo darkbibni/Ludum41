@@ -182,6 +182,12 @@ MonoBehaviour:
   - sfxName: SFX_LOCKPICK_LOOP
     sfxs:
     - {fileID: 8300000, guid: 7c64b26bb80e9914b93feb034e8608ae, type: 3}
+  - sfxName: SFX_DOG_WOOF
+    sfxs:
+    - {fileID: 8300000, guid: 00440754d0e961243baeeb0d22485876, type: 3}
+    - {fileID: 8300000, guid: e06cd39edbf15c54abcf8c7d7d5c207d, type: 3}
+    - {fileID: 8300000, guid: 15ee937afeb22aa4f94a122b680f5e7b, type: 3}
+    - {fileID: 8300000, guid: 8241ed48c64f1344f8084419f7c89c01, type: 3}
   - sfxName: SFX_
     sfxs:
     - {fileID: 0}
