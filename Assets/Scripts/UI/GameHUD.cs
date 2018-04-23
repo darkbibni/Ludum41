@@ -48,9 +48,9 @@ public class GameHUD : MonoBehaviour {
     private IEnumerator WaitLootAnim(Item item)
     {
         itemPanel.DisplayItem(item);
-        yield return bagUI.LootAnimation(item);
 
-        bagUI.IncrementStolenItemCount(playerInventory.ItemCount);
+        yield return bagUI.LootAnimation(item, playerInventory.ItemCount);
+        
         bagUI.UpdateTotalStolenValue(playerInventory.TotalStolenValue);
     }
 

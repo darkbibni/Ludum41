@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222160122908758654}
   - component: {fileID: 114560431359926256}
   m_Layer: 5
-  m_Name: Bag
+  m_Name: BagText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,9 +136,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bagImg: {fileID: 114892732032559362}
   itemStolenImg: {fileID: 114398870372655284}
-  bagSprites: []
+  bagSprites:
+  - {fileID: 21300000, guid: 1f820c89b0498dd4e8ed21561a2dc238, type: 3}
+  - {fileID: 21300000, guid: 1f820c89b0498dd4e8ed21561a2dc238, type: 3}
+  - {fileID: 21300000, guid: 1f820c89b0498dd4e8ed21561a2dc238, type: 3}
   stolenItemText: {fileID: 114480542309575696}
   totalStolenValueText: {fileID: 0}
+  bagNextStep: 050000000a000000
 --- !u!114 &114480542309575696
 MonoBehaviour:
   m_ObjectHideFlags: 1

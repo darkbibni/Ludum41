@@ -16,12 +16,16 @@ public class BagUI : MonoBehaviour
 
     private Vector3 originalPos;
 
+    [SerializeField] private int[] bagNextStep = { 5, 10 };
+    private int currentStep;
+
     private void Awake()
     {
+        currentStep = 0;
         originalPos = itemStolenImg.transform.localPosition;
     }
 
-    public IEnumerator LootAnimation(Item item)
+    public IEnumerator LootAnimation(Item item, int newItemCount)
     {
         Tween tween;
 
@@ -38,16 +42,27 @@ public class BagUI : MonoBehaviour
 
         // TODO Bag size update
         // Empty -> Small -> Big ?
+
         tween = bagImg.transform.DOScale(Vector3.one * 1.1f, 0.25f);
+        IncrementStolenItemCount(newItemCount);
 
         yield return new WaitWhile(() => (tween.IsPlaying()));
 
         tween = bagImg.transform.DOScale(Vector3.one, 0.25f);
     }
 
-    public void IncrementStolenItemCount(int newValue)
+    private void IncrementStolenItemCount(int newValue)
     {
         stolenItemText.text = newValue.ToString();
+        
+        if(currentStep < bagNextStep.Length)
+        {
+            if (newValue >= bagNextStep[currentStep])
+            {
+                currentStep++;
+                bagImg.sprite = bagSprites[currentStep];
+            }
+        }
     }
 
     public void UpdateTotalStolenValue(int newValue)

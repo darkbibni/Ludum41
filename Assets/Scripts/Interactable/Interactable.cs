@@ -8,6 +8,7 @@ public class Interactable : MonoBehaviour {
         get { return playerOrientation; }
     }
     [SerializeField] private Orientation playerOrientation;
+    [SerializeField] private Orientation discreteOrientation = Orientation.None;
 
     public bool HasDiscretInteraction
     {
@@ -36,7 +37,7 @@ public class Interactable : MonoBehaviour {
 
     public virtual void DiscreteInteract(Vector3 dir)
     {
-        if (playerOrientation != Orientation.None && dir != Vector3.zero)
+        if (discreteOrientation != Orientation.None && dir != Vector3.zero)
         {
             // Check the player orientation when interact.
             if (playerOrientation != OrientationUtility.GetOrientation(dir))
