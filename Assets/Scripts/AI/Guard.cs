@@ -16,10 +16,7 @@ public class Guard : Obstacle {
 
         set
         {
-            isAlerted = true;
-
-            patrol.UseAlertPath(isAlerted);
-            // TODO FEEDBACK !!!
+            isAlerted = value;
         }
     }
     private bool isAlerted;
@@ -42,5 +39,11 @@ public class Guard : Obstacle {
         yield return patrol.Move(movePoint);
 
         HasFinished = true;
+    }
+
+    public void UseAlertPath()
+    {
+        // TODO Feedback
+        patrol.UseAlertPath(isAlerted);
     }
 }

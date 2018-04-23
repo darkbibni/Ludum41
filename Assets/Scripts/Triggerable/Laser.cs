@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Laser : Trigerrable {
 
@@ -13,14 +11,28 @@ public class Laser : Trigerrable {
     private float hitDistance;
     private GameObject touchedGameobject;
 
+    private bool isActive;
+
+    private void Awake()
+    {
+        isActive = true;
+    }
+
     public override void Activate()
     {
+        isActive = false;
+
         // Disable the laser.
         laserRenderer.gameObject.SetActive(false);
     }
 
     private void Update()
     {
+        if(!isActive)
+        {
+            return;
+        }
+
         HandleRaycast();
 
         // Resize laser depending what is touched.

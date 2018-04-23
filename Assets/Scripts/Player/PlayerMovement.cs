@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             rgbd.MovePosition(transform.position + dir);
 
-            if(OnMoveSucceed != null)
+            if (OnMoveSucceed != null)
             {
                 OnMoveSucceed();
             }

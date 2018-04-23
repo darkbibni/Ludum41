@@ -3,10 +3,12 @@
 public class PlayerManager : MonoBehaviour {
 
     [SerializeField] private PlayerMovement move;
+    [SerializeField] private PlayerInteraction interaction;
 
     [SerializeField] private int movePointBase = 5;
     [SerializeField] private int bonusPointLastTurn = 2;
 
+    [SerializeField] private Animator anim;
     [SerializeField] private AudioSource audioSrc;
 
     private int currentMovePoint;
@@ -32,6 +34,7 @@ public class PlayerManager : MonoBehaviour {
     void Awake()
     {
         move.OnMoveSucceed += MoveSucceed;
+        interaction.OnInteract += InteractionSucceed;
     }
 
     public void StartNewTurn()
@@ -53,12 +56,18 @@ public class PlayerManager : MonoBehaviour {
             OnMoveDone();
         }
 
+        anim.SetTrigger("Move");
         audioSrc.PlayOneShot(AudioManager.instance.GetSound("SFX_FOOTSTEPS"));
 
         if (currentMovePoint <= 0)
         {
             FinishPlayerTurn();
         }
+    }
+
+    void InteractionSucceed()
+    {
+        anim.SetTrigger("Action");
     }
 
     public void FinishPlayerTurn()

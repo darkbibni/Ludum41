@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198867768691479222}
   - component: {fileID: 199104163456178252}
   m_Layer: 0
-  m_Name: FX_Noise
+  m_Name: FX_Sleeping
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114069264284140502}
   - component: {fileID: 114705002018723324}
   - component: {fileID: 81655774111123282}
+  - component: {fileID: 95728107886969376}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -222,6 +223,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95728107886969376
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1295119652909204}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eeb30c02fd3f6ad4ebcb8ede95dca545, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114069264284140502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -250,8 +268,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move: {fileID: 114559331597159562}
+  interaction: {fileID: 114069264284140502}
   movePointBase: 5
   bonusPointLastTurn: 2
+  anim: {fileID: 95728107886969376}
   audioSrc: {fileID: 82714506883344370}
 --- !u!114 &114216057565914650
 MonoBehaviour:

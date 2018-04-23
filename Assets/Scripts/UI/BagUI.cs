@@ -9,14 +9,14 @@ public class BagUI : MonoBehaviour
 {
     [SerializeField] private Image bagImg;
     [SerializeField] private Image itemStolenImg;
-    [SerializeField] private Sprite[] bagSprites;
+    [SerializeField] private Sprite[] newBagSizeSprites;
 
     [SerializeField] private Text stolenItemText;
     [SerializeField] private Text totalStolenValueText;
 
     private Vector3 originalPos;
 
-    [SerializeField] private int[] bagNextStep = { 5, 10 };
+    [SerializeField] private int[] sizeNeededToNextStep = { 5, 10 };
     private int currentStep;
 
     private void Awake()
@@ -50,17 +50,17 @@ public class BagUI : MonoBehaviour
 
         tween = bagImg.transform.DOScale(Vector3.one, 0.25f);
     }
-
+    
     private void IncrementStolenItemCount(int newValue)
     {
         stolenItemText.text = newValue.ToString();
         
-        if(currentStep < bagNextStep.Length)
+        if(currentStep < sizeNeededToNextStep.Length)
         {
-            if (newValue >= bagNextStep[currentStep])
+            if (newValue >= sizeNeededToNextStep[currentStep])
             {
+                bagImg.sprite = newBagSizeSprites[currentStep];
                 currentStep++;
-                bagImg.sprite = bagSprites[currentStep];
             }
         }
     }

@@ -7,8 +7,10 @@ public class PlayerInteraction : MonoBehaviour {
 
 	[SerializeField] private PlayerInput input;
     [SerializeField] private BoxCollider playerCollider;
-    
+
     [SerializeField] LayerMask interactableMask;
+
+    public Delegates.SimpleDelegate OnInteract;
 
     private void Awake()
     {
@@ -38,6 +40,8 @@ public class PlayerInteraction : MonoBehaviour {
 
                 // Interact with the element.
                 interactable.Interact(correctedDir);
+
+                Interact(correctedDir);
             }
         }
     }
@@ -71,8 +75,20 @@ public class PlayerInteraction : MonoBehaviour {
 
                     // Interact with the element.
                     interactable.DiscreteInteract(correctedDir);
+
+                    Interact(correctedDir);
                 }
             }
+        }
+    }
+
+    private void Interact(Vector3 dir)
+    {
+        transform.rotation = Quaternion.LookRotation(dir);
+
+        if (OnInteract != null)
+        {
+            OnInteract();
         }
     }
 

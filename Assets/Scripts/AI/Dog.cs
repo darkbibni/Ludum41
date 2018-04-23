@@ -9,6 +9,8 @@ public class Dog : Obstacle
     [SerializeField] private Animator anim;
     [SerializeField] private AudioSource audioSource;
 
+    [SerializeField] private ParticleSystem sleepingFX;
+
     private Transform player;
     private bool isWakeUp;
 
@@ -42,6 +44,8 @@ public class Dog : Obstacle
     {
         isWakeUp = true;
 
+        sleepingFX.Stop();
+
         anim.SetTrigger("WakeUp");
 
         audioSource.clip = AudioManager.instance.GetSound("SFX_DOG_WOOF");
@@ -54,7 +58,11 @@ public class Dog : Obstacle
     {
         foreach (Guard guard in guards)
         {
-            guard.IsAlerted = true;
+            if(!guard.IsAlerted)
+            {
+                guard.IsAlerted = true;
+                guard.UseAlertPath();
+            }
         }
     }
 }
