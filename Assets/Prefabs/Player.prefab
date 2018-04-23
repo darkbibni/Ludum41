@@ -281,7 +281,7 @@ MonoBehaviour:
   input: {fileID: 114216057565914650}
   wallMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2304
 --- !u!114 &114705002018723324
 MonoBehaviour:
   m_ObjectHideFlags: 1

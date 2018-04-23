@@ -386,12 +386,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114166323046935656, guid: d8b96792777fc9d4eb58f620f89ad968,
-        type: 2}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 14a392dc6a5b0734b8e54b8fd9fd5da0,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8b96792777fc9d4eb58f620f89ad968, type: 2}
   m_IsPrefabParent: 0
@@ -1684,79 +1678,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114963432600726230, guid: 26f5e23407bae4e449f393d266c48edc,
-        type: 2}
-      propertyPath: m_Text
-      value: Quite the big gun, eh ? Don't touch it, it's still loaded. Nah just kidding.
-        You should use it to mug the guards.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114895406594803706, guid: 26f5e23407bae4e449f393d266c48edc,
-        type: 2}
-      propertyPath: displayDuration
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114963432600726230, guid: 26f5e23407bae4e449f393d266c48edc,
-        type: 2}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 14a392dc6a5b0734b8e54b8fd9fd5da0,
-        type: 3}
-    - target: {fileID: 114130200637996842, guid: 26f5e23407bae4e449f393d266c48edc,
-        type: 2}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 14a392dc6a5b0734b8e54b8fd9fd5da0,
-        type: 3}
-    - target: {fileID: 114130200637996842, guid: 26f5e23407bae4e449f393d266c48edc,
-        type: 2}
-      propertyPath: m_FontData.m_FontStyle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114130200637996842, guid: 26f5e23407bae4e449f393d266c48edc,
-        type: 2}
-      propertyPath: m_FontData.m_FontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 114130200637996842, guid: 26f5e23407bae4e449f393d266c48edc,
-        type: 2}
-      propertyPath: m_FontData.m_MaxSize
-      value: 49
-      objectReference: {fileID: 0}
-    - target: {fileID: 114130200637996842, guid: 26f5e23407bae4e449f393d266c48edc,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114130200637996842, guid: 26f5e23407bae4e449f393d266c48edc,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114130200637996842, guid: 26f5e23407bae4e449f393d266c48edc,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224540418622131556, guid: 26f5e23407bae4e449f393d266c48edc,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0.825
-      objectReference: {fileID: 0}
-    - target: {fileID: 224540418622131556, guid: 26f5e23407bae4e449f393d266c48edc,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224540418622131556, guid: 26f5e23407bae4e449f393d266c48edc,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 51
-      objectReference: {fileID: 0}
-    - target: {fileID: 224540418622131556, guid: 26f5e23407bae4e449f393d266c48edc,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0.825
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 26f5e23407bae4e449f393d266c48edc, type: 2}
   m_IsPrefabParent: 0
@@ -1983,18 +1904,6 @@ Prefab:
       propertyPath: missionMgr
       value: 
       objectReference: {fileID: 136765061}
-    - target: {fileID: 114492961265532340, guid: 5e51d03cf8578d04a9413c509612563e,
-        type: 2}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 14a392dc6a5b0734b8e54b8fd9fd5da0,
-        type: 3}
-    - target: {fileID: 114699893623242376, guid: 5e51d03cf8578d04a9413c509612563e,
-        type: 2}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 14a392dc6a5b0734b8e54b8fd9fd5da0,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e51d03cf8578d04a9413c509612563e, type: 2}
   m_IsPrefabParent: 0
@@ -4092,12 +4001,6 @@ Prefab:
       propertyPath: totalStolenValueText
       value: 
       objectReference: {fileID: 1872977509}
-    - target: {fileID: 114560431359926256, guid: 975156b47650a1246827d52bafdfec4b,
-        type: 2}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 14a392dc6a5b0734b8e54b8fd9fd5da0,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 975156b47650a1246827d52bafdfec4b, type: 2}
   m_IsPrefabParent: 0
@@ -7001,11 +6904,6 @@ Prefab:
       propertyPath: missionMgr
       value: 
       objectReference: {fileID: 136765061}
-    - target: {fileID: 114559331597159562, guid: b7f2c298c28914f4d9159f6a1c1523a6,
-        type: 2}
-      propertyPath: wallMask.m_Bits
-      value: 2304
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7f2c298c28914f4d9159f6a1c1523a6, type: 2}
   m_IsPrefabParent: 0
