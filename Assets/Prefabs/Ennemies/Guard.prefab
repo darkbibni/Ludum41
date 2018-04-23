@@ -304,7 +304,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1198520417660362}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.70710677}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.5, y: 0, z: 3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -312,21 +312,21 @@ Transform:
   - {fileID: 4393755808567878}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4393755808567878
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1614349007691466}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4770068689162156}
   m_Father: {fileID: 4327492984408000}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4706044867420920
 Transform:
   m_ObjectHideFlags: 1
@@ -425,8 +425,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrol: {fileID: 114872452202026954}
-  baseMovePoint: 4
-  bonusPointWhenAlerted: 4
+  baseMovePoint: 3
+  bonusPointWhenAlerted: 6
 --- !u!114 &114799725179805276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -463,7 +463,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49f5c55a9dfb2f24db31266e24e4dd99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolSpeed: 2
+  delayBetweenMove: 0.2
+  delayWhenTurn: 0.2
   patrolType: 0
   patrolPoints:
   - {fileID: 0}

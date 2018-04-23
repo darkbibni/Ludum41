@@ -46,7 +46,7 @@ public class Vitrin : MonoBehaviour {
 
     private void OnValidate()
     {
-        item.Data = itemData;
+        //item.Data = itemData;
         hookingMg.Difficulty = mgDifficulty;
 
         // TODO Rotation of vitrin.
