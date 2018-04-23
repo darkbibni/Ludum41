@@ -84,8 +84,6 @@ public class PlayerInteraction : MonoBehaviour {
 
     private void Interact(Vector3 dir)
     {
-        transform.rotation = Quaternion.LookRotation(dir);
-
         if (OnInteract != null)
         {
             OnInteract();

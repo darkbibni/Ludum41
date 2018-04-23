@@ -27,14 +27,12 @@ public class Dog : Obstacle
             audioSource.clip = AudioManager.instance.GetSound("SFX_DOG_GRUNT");
 
             // Look at player !!!
-
-            transform.LookAt(player);
+            // transform.LookAt(player);
         }
 
         else
         {
             audioSource.clip = AudioManager.instance.GetSound("SFX_DOG_SLEEPING");
-            // TODO zZzZ animation or continuously ?
         }
 
         audioSource.Play();
