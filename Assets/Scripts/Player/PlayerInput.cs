@@ -12,6 +12,7 @@ public class PlayerInput : MonoBehaviour {
     public Move move;
     public Delegates.SimpleDelegate OnAction;
     public Delegates.SimpleDelegate OnDiscreteAction;
+    public Delegates.SimpleDelegate OnPressFinishTurn;
 
     private float horizontal, vertical;
 
@@ -78,6 +79,14 @@ public class PlayerInput : MonoBehaviour {
             if (OnDiscreteAction != null)
             {
                 OnDiscreteAction();
+            }
+        }
+
+        if(Input.GetButtonDown("FinishTurn"))
+        {
+            if (OnPressFinishTurn != null)
+            {
+                OnPressFinishTurn();
             }
         }
     }

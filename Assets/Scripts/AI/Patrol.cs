@@ -22,12 +22,20 @@ public class Patrol : MonoBehaviour
     [SerializeField] float delayWhenTurn = 0.2f;
     [SerializeField] PatrolType patrolType;
 
-    [SerializeField] List<Transform> patrolPoints = new List<Transform>();
+    [SerializeField] List<Transform> firstPath = new List<Transform>();
+    [SerializeField] List<Transform> secondPath = new List<Transform>();
+
+    List<Transform> patrolPoints = new List<Transform>();
+
+    public bool UseSecondPath
+    {
+        get; set;
+    }
 
     #endregion
 
     #region Private attributes
-    
+
     protected Vector3 initialPosition;
     protected Vector3 nextPatrolPoint;
     private int nextPatrolPointIndex;
@@ -53,10 +61,19 @@ public class Patrol : MonoBehaviour
         while(remindMovePoint > 0)
         {
             float distance = Vector3.Distance(transform.position, nextPatrolPoint);
-
+            
             if (distance > 0.01f)
             {
                 Vector3 dir = (nextPatrolPoint - transform.position).normalized;
+
+                float absX = Mathf.Abs(dir.x);
+                float absZ = Mathf.Abs(dir.z);
+
+                if ((absX > 0f && absX < 1f) || (absZ > 0f && absZ < 1f))
+                {
+                    dir = Vector3.right;
+                }
+                
                 transform.position = transform.position + dir;
 
                 remindMovePoint--;
@@ -67,6 +84,8 @@ public class Patrol : MonoBehaviour
             else
             {
                 DetermineNextPatrolPoint();
+
+                RotateToPatrolPoint();
 
                 yield return new WaitForSeconds(delayWhenTurn);
             }
@@ -105,8 +124,6 @@ public class Patrol : MonoBehaviour
 
                 WarpPatrol(); break;
         }
-
-        RotateToPatrolPoint();
     }
 
     protected void GoingAndComingPatrol()
@@ -123,9 +140,14 @@ public class Patrol : MonoBehaviour
         }
 
         if (reverseDirection)
+        {
             nextPatrolPoint = patrolPoints[nextPatrolPointIndex--].position;
+        }
+            
         else
+        {
             nextPatrolPoint = patrolPoints[nextPatrolPointIndex++].position;
+        }
     }
 
     protected void CyclicPatrol()
@@ -154,7 +176,23 @@ public class Patrol : MonoBehaviour
     public void SetupAI()
     {
         transform.position = initialPosition;
+
+        // Use the normal path.
+        patrolPoints = firstPath;
+
+        // First point to reach is second for the first time.
         nextPatrolPointIndex = 1;
+
+        // Find new waypoint and rotate to it.
+        DetermineNextPatrolPoint();
+        RotateToPatrolPoint();
+    }
+
+    public void UseAlertPath(bool isAlerted)
+    {
+        patrolPoints = secondPath;
+
+        nextPatrolPointIndex = 0;
 
         DetermineNextPatrolPoint();
     }

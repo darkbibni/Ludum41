@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameHUD : MonoBehaviour {
-
+    
     [SerializeField] private PlayerManager player;
     [SerializeField] private TurnManager turnMgr;
 
@@ -15,13 +15,17 @@ public class GameHUD : MonoBehaviour {
     [SerializeField] private TurnFeedback turnFeedback;
 
     private PlayerInventory playerInventory;
+    private PlayerInput playerInput;
 
     private void Awake()
     {
         playerInventory = player.GetComponent<PlayerInventory>();
-        
+        playerInput = player.GetComponent<PlayerInput>();
+
         player.OnMoveDone += UpdateMovePoint;
         playerInventory.OnSteal += LootAnItem;
+
+        playerInput.OnPressFinishTurn += OnPressFinishTurn;
 
         turnMgr.OnPlayerTurn += FeedbackPlayerTurn;
         turnMgr.OnComputerTurn += FeedbackComputerTurn;

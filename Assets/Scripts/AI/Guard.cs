@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Guard : Obstacle {
@@ -19,6 +18,7 @@ public class Guard : Obstacle {
         {
             isAlerted = true;
 
+            patrol.UseAlertPath(isAlerted);
             // TODO FEEDBACK !!!
         }
     }
