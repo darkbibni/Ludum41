@@ -12,8 +12,10 @@ public class Vitrin : MonoBehaviour {
     [SerializeField] private HookingMicrogame hookingMg;
     [SerializeField] private LockPickingPreset mgDifficulty;
     [SerializeField] private float unlockDuration = 0.5f;
-
+    
     [SerializeField] private LayerMask warnableMask;
+    [SerializeField] private Vector3 warnSize = Vector3.one;
+    [SerializeField] private ParticleSystem noiseFX;
 
     [Header("Audio")]
     [SerializeField] private AudioSource audioSrc;
@@ -62,16 +64,18 @@ public class Vitrin : MonoBehaviour {
 
         isStealing = true;
         
+        StartCoroutine(CutGlassAction());
+    }
+
+    private IEnumerator CutGlassAction()
+    {
         anim.SetTrigger("CutGlass");
 
         audioSrc.clip = AudioManager.instance.GetSound("SFX_CUT_GLASS");
         audioSrc.Play();
 
-        StartCoroutine(WaitCutGlassAction());
-    }
+        noiseFX.Play();
 
-    private IEnumerator WaitCutGlassAction()
-    {
         yield return new WaitUntil(() => (anim.GetBool("End")));
         anim.SetBool("End", false);
         
@@ -83,7 +87,7 @@ public class Vitrin : MonoBehaviour {
     // Warn all dogs around !!!
     private void WarnDogs()
     {
-        Collider[] colliders = Physics.OverlapBox(transform.position, Vector3.one, Quaternion.identity, warnableMask);
+        Collider[] colliders = Physics.OverlapBox(transform.position, warnSize, Quaternion.identity, warnableMask);
 
         foreach(Collider c in colliders)
         {
@@ -162,7 +166,7 @@ public class Vitrin : MonoBehaviour {
     [ContextMenu("FAKE")]
     private void FakeUnlock()
     {
-        StartCoroutine(UnlockSuceed());
+        StartCoroutine(CutGlassAction());
     }
 
     private void StealItem()
@@ -175,5 +179,11 @@ public class Vitrin : MonoBehaviour {
         vitrinEmpty = true;
 
         isStealing = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, warnSize * 2f);
     }
 }

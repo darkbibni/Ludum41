@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4acee176c8e97f94a8e6802a9507fcee, type: 3}
-  m_Name: Example 11
+  m_Name: Example
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300010, guid: e33452ce05d1ba8408e4deddaa867ab6, type: 3}
   itemName: Sword
