@@ -21,11 +21,13 @@ public class Patrol : MonoBehaviour
     [SerializeField] float delayBetweenMove = 0.2f;
     [SerializeField] float delayWhenTurn = 0.2f;
     [SerializeField] PatrolType patrolType;
-
+    
     [SerializeField] List<Transform> firstPath = new List<Transform>();
     [SerializeField] List<Transform> secondPath = new List<Transform>();
 
     List<Transform> patrolPoints = new List<Transform>();
+
+    public Delegates.SimpleDelegate OnMoveSucceed;
 
     public bool UseSecondPath
     {
@@ -82,6 +84,11 @@ public class Patrol : MonoBehaviour
                 transform.position = transform.position + dir;
 
                 remindMovePoint--;
+
+                if(OnMoveSucceed != null)
+                {
+                    OnMoveSucceed();
+                }
 
                 yield return new WaitForSeconds(delayBetweenMove);
             }

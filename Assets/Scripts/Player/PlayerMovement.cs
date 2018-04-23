@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private PlayerInput input;
 
     [SerializeField] private LayerMask wallMask;
+    [SerializeField] private Transform spriteRot;
 
     public Delegates.SimpleDelegate OnMoveSucceed;
 
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour {
         if (!Physics.Raycast(ray, 1f, wallMask))
         {
             rgbd.MovePosition(transform.position + dir);
+
+            spriteRot.localRotation = Quaternion.LookRotation(dir);
 
             if (OnMoveSucceed != null)
             {
