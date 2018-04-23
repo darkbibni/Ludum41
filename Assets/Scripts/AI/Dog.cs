@@ -36,6 +36,8 @@ public class Dog : Obstacle
         }
 
         audioSource.Play();
+
+        HasFinished = true;
     }
 
     public void WakeUp()
