@@ -52,7 +52,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4058506257313654}
   - component: {fileID: 114767388185362908}
-  - component: {fileID: 208320005518282934}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -310,24 +309,9 @@ MonoBehaviour:
   colliders:
   - {fileID: 65244736469967158}
   - {fileID: 65825020121065434}
-  navMeshObstacle: {fileID: 208320005518282934}
+  navMeshObstacle: {fileID: 0}
   OpenDuration: 1
   audioSource: {fileID: 82963480276068768}
---- !u!208 &208320005518282934
-NavMeshObstacle:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1477800960908066}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 1}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: -0.5}
-  m_TimeToStationary: 0.5
 --- !u!212 &212250474465351902
 SpriteRenderer:
   m_ObjectHideFlags: 1

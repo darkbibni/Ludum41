@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 using DG.Tweening;
 
@@ -9,7 +7,8 @@ public enum LaserType
     QUARTER,
     DEMI,
     THIRD_QUARTER,
-    FULL
+    FULL,
+    STATIONNARY
 }
 
 public class LaserObstacle : Obstacle
@@ -30,6 +29,12 @@ public class LaserObstacle : Obstacle
     public override void StartNewTurn()
     {
         HasFinished = false;
+
+        if(laserType == LaserType.STATIONNARY)
+        {
+            HasFinished = true;
+            return;
+        }
 
         DetermineNextStep();
 

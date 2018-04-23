@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4513814826491436}
   - component: {fileID: 65949590001549594}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,8 +110,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1099073951406124}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1, y: 0.5, z: 5.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.5, y: 0.5, z: 1}
   m_LocalScale: {x: 1.0000005, y: 1, z: 2.000001}
   m_Children:
   - {fileID: 4083936279469356}
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b73bce5712688e4a8cc564ab45d994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOrientation: 2
+  playerOrientation: 1
   hasDiscreteInteraction: 0
 --- !u!114 &114327527656860998
 MonoBehaviour:

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,26 +6,29 @@ public class MissionManager : MonoBehaviour {
 
     [SerializeField] PlayerManager player;
     [SerializeField] TurnManager turnMgr;
+    [SerializeField] float restartCooldown = 1f;
 
     public Delegates.SimpleDelegate OnWin;
     public Delegates.SimpleDelegate OnLose;
 
     public bool IsGameOver
     {
-        get; set;
+        get; private set;
     }
+
+    private bool canRestart;
 
     private void Awake()
     {
         IsGameOver = false;
 
-        player.OnDetected += PlayerDetected;
-        player.OnCatched += PlayerLose;
+        player.OnDetected += OnPlayerDetected;
+        player.OnCatched += OnPlayerCatched;
     }
-
+    
     private void Update()
     {
-        if(IsGameOver)
+        if(IsGameOver && canRestart)
         {
             if(Input.GetButtonDown("Submit"))
             {
@@ -40,28 +42,33 @@ public class MissionManager : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    private void PlayerDetected()
+    private void OnPlayerDetected()
     {
         // Trigger directly new turn for the player (but it's the last one !)
         turnMgr.StartNewPlayerTurn();
     }
 
-    public void PlayerLose()
+    public void OnPlayerCatched()
     {
-        if(IsGameOver)
+        Lose();
+    }
+
+    public void Lose()
+    {
+        if (IsGameOver)
         {
             return;
         }
-        
+
         IsGameOver = true;
 
-        if(OnLose != null)
+        if (OnLose != null)
         {
             OnLose();
         }
     }
 
-    public void PlayerWin()
+    public void Win()
     {
         if (IsGameOver)
         {
@@ -74,5 +81,14 @@ public class MissionManager : MonoBehaviour {
         {
             OnWin();
         }
+
+        StartCoroutine(PermitToRestart());
+    }
+
+    private IEnumerator PermitToRestart()
+    {
+        yield return new WaitForSeconds(restartCooldown);
+
+        canRestart = true;
     }
 }

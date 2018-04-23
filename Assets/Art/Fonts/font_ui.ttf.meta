@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 14a392dc6a5b0734b8e54b8fd9fd5da0
+timeCreated: 1524499368
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Monkey Island 1991 refined
+  fontNames:
+  - Monkey Island 1991 refined
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

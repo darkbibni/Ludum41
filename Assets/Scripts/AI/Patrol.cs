@@ -56,6 +56,11 @@ public class Patrol : MonoBehaviour
     
     public IEnumerator Move(int movePoint)
     {
+        if(patrolPoints.Count <= 1)
+        {
+            yield break;
+        }
+
         int remindMovePoint = movePoint;
 
         while(remindMovePoint > 0)
@@ -181,11 +186,14 @@ public class Patrol : MonoBehaviour
         patrolPoints = firstPath;
 
         // First point to reach is second for the first time.
-        nextPatrolPointIndex = 1;
+        if(patrolPoints.Count > 1)
+        {
+            nextPatrolPointIndex = 1;
 
-        // Find new waypoint and rotate to it.
-        DetermineNextPatrolPoint();
-        RotateToPatrolPoint();
+            // Find new waypoint and rotate to it.
+            DetermineNextPatrolPoint();
+            RotateToPatrolPoint();
+        }
     }
 
     public void UseAlertPath(bool isAlerted)

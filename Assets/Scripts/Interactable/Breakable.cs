@@ -40,7 +40,7 @@ public class Breakable : MonoBehaviour {
 
         if(permitToFlee)
         {
-            missionMgr.PlayerWin();
+            missionMgr.Win();
         }
     }
 }

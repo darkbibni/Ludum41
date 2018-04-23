@@ -40,6 +40,8 @@ public class Dog : Obstacle
 
     public void WakeUp()
     {
+        isWakeUp = true;
+
         anim.SetTrigger("WakeUp");
 
         audioSource.clip = AudioManager.instance.GetSound("SFX_DOG_WOOF");
