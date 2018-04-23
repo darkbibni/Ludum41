@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4058506257313654}
   - component: {fileID: 114767388185362908}
-  - component: {fileID: 208305744869393092}
+  - component: {fileID: 208320005518282934}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -157,7 +157,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1691976221902118}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 1, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_Children:
   - {fileID: 4582975961238220}
@@ -184,7 +184,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1516698428532600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_Children:
   - {fileID: 4069901252431124}
@@ -223,7 +223,8 @@ AudioSource:
   m_GameObject: {fileID: 1275809983124650}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243742946393498476, guid: e6e61569c86543b499c4d9a1ab8a5a87,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.4
@@ -309,9 +310,10 @@ MonoBehaviour:
   colliders:
   - {fileID: 65244736469967158}
   - {fileID: 65825020121065434}
+  navMeshObstacle: {fileID: 208320005518282934}
   OpenDuration: 1
   audioSource: {fileID: 82963480276068768}
---- !u!208 &208305744869393092
+--- !u!208 &208320005518282934
 NavMeshObstacle:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -322,7 +324,7 @@ NavMeshObstacle:
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 1}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: -0.5}
   m_TimeToStationary: 0.5

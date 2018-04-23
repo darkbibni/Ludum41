@@ -7,7 +7,7 @@ public class TurnManager : MonoBehaviour {
     [SerializeField] private PlayerManager player;
     [SerializeField] private List<ObstacleGroup> missionObstacles;
 
-    public Delegates.SimpleDelegate OnPlayerTurn;
+    public Delegates.BoolDelegate OnPlayerTurn;
     public Delegates.SimpleDelegate OnComputerTurn;
 
     public bool IsPlayerTurn
@@ -45,7 +45,7 @@ public class TurnManager : MonoBehaviour {
         StartCoroutine(WaitForComputer());
     }
 
-    void StartNewPlayerTurn()
+    public void StartNewPlayerTurn()
     {
         isPlayerTurn = true;
         
@@ -53,7 +53,7 @@ public class TurnManager : MonoBehaviour {
         
         if (OnPlayerTurn != null)
         {
-            OnPlayerTurn();
+            OnPlayerTurn(player.HasBeenDetected);
         }
     }
 

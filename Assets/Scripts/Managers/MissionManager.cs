@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MissionManager : MonoBehaviour {
 
     [SerializeField] PlayerManager player;
+    [SerializeField] TurnManager turnMgr;
 
     public Delegates.SimpleDelegate OnWin;
     public Delegates.SimpleDelegate OnLose;
@@ -41,8 +42,8 @@ public class MissionManager : MonoBehaviour {
 
     private void PlayerDetected()
     {
-        // Trigger directly new turn.
-        player.StartNewTurn();
+        // Trigger directly new turn for the player (but it's the last one !)
+        turnMgr.StartNewPlayerTurn();
     }
 
     public void PlayerLose()

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+using DG.Tweening;
+
 public class Item : MonoBehaviour {
 
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -12,5 +14,15 @@ public class Item : MonoBehaviour {
             data = value;
             spriteRenderer.sprite = data.sprite;
         }
+    }
+
+    public void Disappear()
+    {
+        spriteRenderer.DOFade(0f, 0.5f).onComplete = OnDissapearFinished;
+    }
+
+    private void OnDissapearFinished()
+    {
+        gameObject.SetActive(false);
     }
 }

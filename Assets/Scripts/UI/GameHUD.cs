@@ -9,27 +9,24 @@ public class GameHUD : MonoBehaviour {
     [SerializeField] private TurnManager turnMgr;
 
     [SerializeField] private Text movePointText;
-    [SerializeField] private Text stolenItemText;
-    [SerializeField] private Text totalStolenValueText;
-    [SerializeField] private Image lastTurnFeedback;
-    [SerializeField] private Text turnFeedbackText;
 
     [SerializeField] private ItemPanelUI itemPanel;
+    [SerializeField] private BagUI bagUI;
+    [SerializeField] private TurnFeedback turnFeedback;
 
     private PlayerInventory playerInventory;
 
     private void Awake()
     {
         playerInventory = player.GetComponent<PlayerInventory>();
-
-        player.OnDetected += FeedbackLastTurn;
+        
         player.OnMoveDone += UpdateMovePoint;
-        playerInventory.OnSteal += IncrementItemCount;
+        playerInventory.OnSteal += LootAnItem;
 
         turnMgr.OnPlayerTurn += FeedbackPlayerTurn;
         turnMgr.OnComputerTurn += FeedbackComputerTurn;
-
-        UpdateTotalStolenValue(0);
+        
+        bagUI.UpdateTotalStolenValue(0);
     }
 
     private void UpdateMovePoint()
@@ -37,60 +34,45 @@ public class GameHUD : MonoBehaviour {
         movePointText.text = player.CurrentMovePoint.ToString();
     }
 
-    private void IncrementItemCount(Item item)
+    private void LootAnItem(Item item)
     {
-        stolenItemText.text = playerInventory.ItemCount.ToString();
+        // Todo Queue for display !
 
-        UpdateTotalStolenValue(playerInventory.TotalStolenValue);
+        StartCoroutine(WaitLootAnim(item));
+    }
 
+    private IEnumerator WaitLootAnim(Item item)
+    {
         itemPanel.DisplayItem(item);
+        yield return bagUI.LootAnimation(item);
+
+        bagUI.IncrementStolenItemCount(playerInventory.ItemCount);
+        bagUI.UpdateTotalStolenValue(playerInventory.TotalStolenValue);
     }
-
-    private void UpdateTotalStolenValue(int newValue)
-    {
-        totalStolenValueText.text = FormatScore(newValue);
-    }
-
-    /// <summary>
-    /// Add space every threes characters in the string.
-    /// </summary>
-    /// <param name="score"></param>
-    /// <returns></returns>
-    public static string FormatScore(int score)
-    {
-        string scoreString = score.ToString();
-
-        int i = 1;
-        int spaceIndex = scoreString.Length - 4 * i + 1;
-
-        while (spaceIndex > 0)
-        {
-            scoreString = scoreString.Insert(spaceIndex, " ");
-
-            i++;
-            spaceIndex = scoreString.Length - 4 * i + 1;
-        }
-
-        return scoreString;
-    }
-
 
     private void FeedbackLastTurn()
     {
-        lastTurnFeedback.color = Color.yellow;
-        turnFeedbackText.color = Color.black;
-        turnFeedbackText.text = "Last turn";
+        turnFeedback.LastTurnFeedback();
     }
 
-    private void FeedbackPlayerTurn()
+    private void FeedbackPlayerTurn(bool isLastTurn)
     {
-        turnFeedbackText.text = "Your\nturn";
+        if(isLastTurn)
+        {
+            turnFeedback.LastTurnFeedback();
+        }
+
+        else
+        {
+            turnFeedback.PlayerTurn();
+        }
+        
         UpdateMovePoint();
     }
 
     private void FeedbackComputerTurn()
     {
-        turnFeedbackText.text = "Wait";
+        turnFeedback.EnnemiesTurn();
     }
 
     /// <summary>

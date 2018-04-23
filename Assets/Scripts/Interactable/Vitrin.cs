@@ -160,7 +160,7 @@ public class Vitrin : MonoBehaviour {
         playerInventory.AddItem(item);
 
         // TODO Fade ! Then Display on UI !
-        item.gameObject.SetActive(false);
+        item.Disappear();
 
         vitrinEmpty = true;
 
