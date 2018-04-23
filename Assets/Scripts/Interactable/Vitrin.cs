@@ -10,6 +10,7 @@ public class Vitrin : MonoBehaviour {
     [SerializeField] private ItemData itemData; // TODO Scriptable object.
     
     [SerializeField] private HookingMicrogame hookingMg;
+    [SerializeField] private LockPickingPreset mgDifficulty;
     [SerializeField] private float unlockDuration = 0.5f;
 
     [SerializeField] private LayerMask warnableMask;
@@ -41,6 +42,15 @@ public class Vitrin : MonoBehaviour {
 
         interactable.OnInteract += OnCutGlass;
         interactable.OnDiscreteInteract += OnUnlockVitrin;
+    }
+
+    private void OnValidate()
+    {
+        item.Data = itemData;
+        hookingMg.Difficulty = mgDifficulty;
+
+        // TODO Rotation of vitrin.
+        //transform.GetChild(0).localRotation = Quaternion.Euler(0, 0, (((int)interactable.Orientation)+2) * 90);
     }
 
     private void OnCutGlass()

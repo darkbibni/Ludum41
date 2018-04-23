@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour {
 
+    public Orientation Orientation
+    {
+        get { return playerOrientation; }
+    }
     [SerializeField] private Orientation playerOrientation;
 
     public bool HasDiscretInteraction

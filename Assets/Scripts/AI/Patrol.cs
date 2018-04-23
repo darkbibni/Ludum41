@@ -18,10 +18,11 @@ public class Patrol : MonoBehaviour
 {
     #region Inspector attributes
 
-    public float patrolSpeed = 1.0f;
-    public PatrolType patrolType;
-    
-    public List<Transform> patrolPoints = new List<Transform>();
+    [SerializeField] float delayBetweenMove = 0.2f;
+    [SerializeField] float delayWhenTurn = 0.2f;
+    [SerializeField] PatrolType patrolType;
+
+    [SerializeField] List<Transform> patrolPoints = new List<Transform>();
 
     #endregion
 
@@ -60,14 +61,14 @@ public class Patrol : MonoBehaviour
 
                 remindMovePoint--;
 
-                yield return new WaitForSeconds(0.25f);
+                yield return new WaitForSeconds(delayBetweenMove);
             }
 
             else
             {
                 DetermineNextPatrolPoint();
 
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(delayWhenTurn);
             }
         }
     }

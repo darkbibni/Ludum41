@@ -7,7 +7,19 @@ public class HookingMicrogame : MonoBehaviour {
 
     [SerializeField] private Image player;
     [SerializeField] private Image area;
-    [SerializeField] private LockPickingPreset difficulty;
+
+    public LockPickingPreset Difficulty
+    {
+        get
+        {
+            return difficulty;
+        }
+        set
+        {
+            difficulty = value;
+        }
+    }
+    private LockPickingPreset difficulty;
 
     // Min and max of the micro game.
     private float min = 0f, max = 180f;

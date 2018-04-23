@@ -263,7 +263,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1069358862077636}
-  m_LocalRotation: {x: 0.5000003, y: -0.49999985, z: 0.49999973, w: 0.50000024}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.70710677}
   m_LocalPosition: {x: 6.5, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1.0000005, z: 1.0000005}
   m_Children:
@@ -273,7 +273,7 @@ Transform:
   - {fileID: 224254043657985074}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 90.00001}
+  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
 --- !u!4 &4161704955157884
 Transform:
   m_ObjectHideFlags: 1
@@ -319,7 +319,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1985583522672964}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -329,7 +329,7 @@ Transform:
   - {fileID: 4980808859599528}
   m_Father: {fileID: 4018831704837676}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4725758818969386
 Transform:
   m_ObjectHideFlags: 1
@@ -549,8 +549,9 @@ MonoBehaviour:
   interactable: {fileID: 114574608755231654}
   anim: {fileID: 95512246855100590}
   item: {fileID: 114419590557634212}
-  itemData: {fileID: 11400000, guid: ce251bbc9ce06d540ac8a14288e1defa, type: 2}
+  itemData: {fileID: 11400000, guid: 7861f8cf16e28cc42bf285e17319aa8a, type: 2}
   hookingMg: {fileID: 114682176973640752}
+  mgDifficulty: {fileID: 11400000, guid: 7ea138010c6514a49bbfc99bbb70addc, type: 2}
   unlockDuration: 1
   warnableMask:
     serializedVersion: 2
@@ -621,7 +622,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 114563019408178642}
   area: {fileID: 114974216422415432}
-  difficulty: {fileID: 11400000, guid: 392bd946351e8d741885ff9169d92df1, type: 2}
 --- !u!114 &114742096407192432
 MonoBehaviour:
   m_ObjectHideFlags: 1
