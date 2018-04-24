@@ -9,5 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScreen.unity
     guid: ec72ef222bc5a6c488a37452015615f4
   - enabled: 1
-    path: Assets/Scenes/Proto.unity
-    guid: 7ac8fd0d8cab4cf4ea3f071400c0925b
+    path: Assets/Scenes/Clement.unity
+    guid: 4c86943b83eb11d42af5bab9bf8a3d55
