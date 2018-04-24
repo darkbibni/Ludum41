@@ -13,6 +13,11 @@ public class GuardVision : MonoBehaviour {
     private Vector3 guardOrigin;
     private Collider playerCollider;
     private int firstDistance;
+
+    public bool HasPlayerOnSight
+    {
+        get; private set;
+    }
     
     private void FixedUpdate()
     {
@@ -96,12 +101,26 @@ public class GuardVision : MonoBehaviour {
     {
         if (playerCollider != null)
         {
+            if(HasPlayerOnSight)
+            {
+                return;
+            }
+
+            HasPlayerOnSight = true;
+
             PlayerManager player = playerCollider.GetComponent<PlayerManager>();
 
             if (player)
             {
                 player.DetectPlayer();
             }
+
+            guard.OnSeePlayer();
+        }
+        
+        else
+        {
+            HasPlayerOnSight = false;
         }
     }
 }

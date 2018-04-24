@@ -26,6 +26,8 @@ public class Dog : Obstacle
             // TODO GROGNER !!!
             audioSource.clip = AudioManager.instance.GetSound("SFX_DOG_GRUNT");
 
+            anim.SetTrigger("WakeUp");
+
             // Look at player !!!
             // transform.LookAt(player);
         }

@@ -23,7 +23,7 @@ public class Guard : Obstacle {
         }
     }
     private bool isAlerted;
-
+    
     private void Awake()
     {
         patrol.OnMoveSucceed += MoveStep;
@@ -60,9 +60,14 @@ public class Guard : Obstacle {
     public void UseAlertPath()
     {
         // TODO Feedback
-        audioSource.clip = AudioManager.instance.GetSound("GUARD_EH");
+        patrol.UseAlertPath(isAlerted);
+    }
+
+    public void OnSeePlayer()
+    {
+        audioSource.clip = AudioManager.instance.GetSound("SFX_GUARD_ALERTED");
         audioSource.Play();
 
-        patrol.UseAlertPath(isAlerted);
+        // TODO FX !
     }
 }
