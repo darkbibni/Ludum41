@@ -41,6 +41,7 @@ public class Vitrin : MonoBehaviour {
         }
 
         item.Data = itemData;
+        hookingMg.Difficulty = mgDifficulty;
 
         interactable.OnInteract += OnCutGlass;
         interactable.OnDiscreteInteract += OnUnlockVitrin;
@@ -48,11 +49,13 @@ public class Vitrin : MonoBehaviour {
 
     private void OnValidate()
     {
+#if UNITY_EDITOR
         //item.Data = itemData;
-        hookingMg.Difficulty = mgDifficulty;
+        //hookingMg.Difficulty = mgDifficulty;
 
         // TODO Rotation of vitrin.
         //transform.GetChild(0).localRotation = Quaternion.Euler(0, 0, (((int)interactable.Orientation)+2) * 90);
+#endif
     }
 
     private void OnCutGlass()

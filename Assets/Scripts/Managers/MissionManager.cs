@@ -66,6 +66,8 @@ public class MissionManager : MonoBehaviour {
         {
             OnLose();
         }
+
+        StartCoroutine(PermitToRestart());
     }
 
     public void Win()
