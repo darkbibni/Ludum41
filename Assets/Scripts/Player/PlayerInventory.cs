@@ -6,6 +6,13 @@ public class PlayerInventory : MonoBehaviour {
 
     public Delegates.OnLootItem OnSteal;
 
+    public List<Item> Items
+    {
+        get
+        {
+            return items;
+        }
+    }
     private List<Item> items = new List<Item>();
 
     public int TotalStolenValue

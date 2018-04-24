@@ -9,8 +9,8 @@ public class Breakable : MonoBehaviour {
     
     [SerializeField] private AudioSource audioSource;
 
-    private MissionManager missionMgr;
-
+    [SerializeField] private PlayerManager player;
+   
     [SerializeField] private bool permitToFlee = true;
 
     private bool isBreak;
@@ -18,12 +18,10 @@ public class Breakable : MonoBehaviour {
     private void Awake()
     {
         isBreak = false;
-        missionMgr = GameObject.FindObjectOfType<MissionManager>();
 
         interactable.OnInteract += Break;
     }
-
-    [ContextMenu("Test Son")]
+    
     private void Break()
     {
         if (isBreak)
@@ -40,7 +38,7 @@ public class Breakable : MonoBehaviour {
 
         if(permitToFlee)
         {
-            missionMgr.Win();
+            player.Flee();
         }
     }
 }

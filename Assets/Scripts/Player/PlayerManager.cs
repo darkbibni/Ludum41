@@ -11,12 +11,7 @@ public class PlayerManager : MonoBehaviour {
     [SerializeField] private Animator anim;
     [SerializeField] private AudioSource audioSrc;
 
-    private int currentMovePoint;
-
-    public int CurrentMovePoint
-    {
-        get { return currentMovePoint; }
-    }
+    public int CurrentMovePoint { get; private set; }
 
     public bool HasBeenDetected
     {
@@ -30,6 +25,7 @@ public class PlayerManager : MonoBehaviour {
     public Delegates.SimpleDelegate OnTurnFinished;
     public Delegates.SimpleDelegate OnDetected;
     public Delegates.SimpleDelegate OnCatched;
+    public Delegates.SimpleDelegate OnFlee;
 
     void Awake()
     {
@@ -39,17 +35,17 @@ public class PlayerManager : MonoBehaviour {
 
     public void StartNewTurn()
     {
-        currentMovePoint = movePointBase;
+        CurrentMovePoint = movePointBase;
 
         if(HasBeenDetected)
         {
-            currentMovePoint += bonusPointLastTurn;
+            CurrentMovePoint += bonusPointLastTurn;
         }
     }
 
     void MoveSucceed()
     {
-        currentMovePoint--;
+        CurrentMovePoint--;
 
         if(OnMoveDone != null)
         {
@@ -59,7 +55,7 @@ public class PlayerManager : MonoBehaviour {
         anim.SetTrigger("Move");
         audioSrc.PlayOneShot(AudioManager.instance.GetSound("SFX_FOOTSTEPS"));
 
-        if (currentMovePoint <= 0)
+        if (CurrentMovePoint <= 0)
         {
             FinishPlayerTurn();
         }
@@ -107,6 +103,16 @@ public class PlayerManager : MonoBehaviour {
         if (OnCatched != null)
         {
             OnCatched();
+        }
+    }
+
+    public void Flee()
+    {
+        anim.SetTrigger("Flee");
+
+        if(OnFlee != null)
+        {
+            OnFlee();
         }
     }
 }

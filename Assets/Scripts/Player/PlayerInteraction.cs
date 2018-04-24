@@ -6,7 +6,7 @@
 public class PlayerInteraction : MonoBehaviour {
 
 	[SerializeField] private PlayerInput input;
-    [SerializeField] private BoxCollider playerCollider;
+    [SerializeField] private CapsuleCollider playerCollider;
 
     [SerializeField] LayerMask interactableMask;
 

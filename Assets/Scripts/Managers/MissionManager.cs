@@ -24,6 +24,7 @@ public class MissionManager : MonoBehaviour {
 
         player.OnDetected += OnPlayerDetected;
         player.OnCatched += OnPlayerCatched;
+        player.OnFlee += Win;
     }
     
     private void Update()
