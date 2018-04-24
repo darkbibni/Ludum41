@@ -40,7 +40,7 @@ public class Interactable : MonoBehaviour {
         if (discreteOrientation != Orientation.None && dir != Vector3.zero)
         {
             // Check the player orientation when interact.
-            if (playerOrientation != OrientationUtility.GetOrientation(dir))
+            if (discreteOrientation != OrientationUtility.GetOrientation(dir))
             {
                 return;
             }

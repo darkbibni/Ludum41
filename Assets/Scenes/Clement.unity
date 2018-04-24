@@ -7092,7 +7092,7 @@ Prefab:
     - target: {fileID: 114753694354774826, guid: 3f37665a56ebf5648b4d7d7587beff7b,
         type: 2}
       propertyPath: playerOrientation
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114201128972896000, guid: 3f37665a56ebf5648b4d7d7587beff7b,
         type: 2}
@@ -7100,6 +7100,11 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 392bd946351e8d741885ff9169d92df1,
         type: 2}
+    - target: {fileID: 114753694354774826, guid: 3f37665a56ebf5648b4d7d7587beff7b,
+        type: 2}
+      propertyPath: discreteOrientation
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f37665a56ebf5648b4d7d7587beff7b, type: 2}
   m_IsPrefabParent: 0
