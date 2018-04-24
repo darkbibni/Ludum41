@@ -22,6 +22,7 @@ public class Door : Trigerrable {
         audioSource.Play();
     }
 
+    [ContextMenu("OPEN DOOR")]
     private void OpenDoor()
     {
         foreach (Collider c in colliders)
