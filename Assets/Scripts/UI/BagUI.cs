@@ -14,6 +14,8 @@ public class BagUI : MonoBehaviour
     [SerializeField] private Text stolenItemText;
     [SerializeField] private Text totalStolenValueText;
 
+    [SerializeField] private AudioSource audioSource;
+
     private Vector3 originalPos;
 
     [SerializeField] private int[] sizeNeededToNextStep = { 5, 10 };
@@ -43,6 +45,8 @@ public class BagUI : MonoBehaviour
         // TODO Bag size update
         // Empty -> Small -> Big ?
 
+        audioSource.clip = AudioManager.instance.GetSound("SFX_BAG");
+        audioSource.Play();
         tween = bagImg.transform.DOScale(Vector3.one * 1.1f, 0.25f);
         IncrementStolenItemCount(newItemCount);
 

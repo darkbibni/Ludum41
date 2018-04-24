@@ -640,7 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b73bce5712688e4a8cc564ab45d994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOrientation: 1
+  playerOrientation: 4
   discreteOrientation: 4
   hasDiscreteInteraction: 1
 --- !u!114 &114682176973640752
